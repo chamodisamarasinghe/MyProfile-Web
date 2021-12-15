@@ -7,15 +7,59 @@
     <meta name="viewport" content="widt=device-widtg initial-scale=1">
     <meta name="theme -color" content="blue">
     <style>
-        h2{font-size: 50px;}
-        h1{font-size: 60px;}
-        h3{font-size: 70px;}
+
+        header{
+            position: relative;
+            height: 80px;
+            box-shadow: -2px 6px 9px -4px #917a7a;
+        }
+
+        h2{font-size: 50px;
+            color: white;
+        }
+        h1{font-size: 60px;
+            color: white;
+        }
+        h3{font-size: 70px;
+            color: white;
+        }
+
+        header>nav>ul{
+            position: absolute;
+            right: 30px;
+            bottom: 0;
+            font-size: 24px;
+            font-family: 'Lobster', cursive;
+            list-style: none;
+            color: white;
+        }
+
+        header>nav>ul>li{
+            padding: 0 10px 0 10px;
+            display: inline-block;
+        }
+
+
+        header>nav>ul>li:hover{
+            cursor: pointer;
+            color: red;
+        }
+
+        body{
+            background-color: black;
+        }
     </style>
 </head>
 <body>
 <header>
     <nav>
-
+       <ul>
+           <li>About</li>
+           <li>Education</li>
+           <li>Skills</li>
+           <li>Projects</li>
+           <li>Contact</li>
+       </ul>
     </nav>
 </header>
 
@@ -26,7 +70,7 @@
 
         <div>
             <pre><h2><i>Student at Institute of Software Engineering</i></h2>
-            <h3 style="color: red"><b class="term">            IJSE</b></h3></pre> <img src="assests/images/about.jpg" alt="" width="200" align="right">
+            <h3 style="color: red"><b class="term">            IJSE</b></h3></pre>
         </div>
         <br>
         <br>
@@ -44,8 +88,7 @@
     </section>
 
 <section>
-
-
+    <img src="assests/images/about.jpg" alt="" width="200" align="right">
 </section>
 
 
