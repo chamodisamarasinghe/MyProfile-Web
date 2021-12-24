@@ -9,17 +9,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="assests/css/fonts/css/all.css" rel="stylesheet">
     <style>
-
+        section{
+            width: 228px;
+            height: 492px;
+            top: 91px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            right: 172px;
+        }
 
 
         section>div{
             height: 40px;
             border: 1px solid red;
+            position: relative;
+            background: purple;
+            color: white;
+            box-shadow: 1px 2px 3px 2px brown;
         }
 
         section>div>h3{
             margin: 0;
             display: inline-block;
+            padding: 10px;
+        }
+
+        section>div:hover{
+            background: darkblue;
+            left: 172px;
+            cursor: pointer;
+            transition-property: all;
+            transition-duration: 5s;
         }
     </style>
 </head>
