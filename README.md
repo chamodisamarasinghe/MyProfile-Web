@@ -1,3 +1,5 @@
 #This is my Profile
-Institute of Software Engineering
-![GitHub Logo](assests/images/female-student.png)
+Chamodi Sandunika Samarasinghe.
+
+Student at Institute of Software Engineering
+![GitHub Logo](assests/images/Css.jpg)
