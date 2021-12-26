@@ -4,8 +4,6 @@ Chamodi Sandunika Samarasinghe.
 
 Student at Institute of Software Engineering
 
-
-![GitHub Logo](assests/images/Css.jpg )
 <img src="assests/images/Css.jpg" width="100">
 
 Site Map URL = https://www.gloomaps.com/jEXsYpAHg7
