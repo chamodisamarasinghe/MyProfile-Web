@@ -26,6 +26,8 @@
             height: 100%;
             width: 400%;
             display: flex;
+            animation-name: slideme;
+            animation-duration: 3s;
         }
 
         main>section>div{
@@ -55,6 +57,16 @@
             background: url("assests/images/img4.jpg");
             background-size: cover;
             background-position: center;
+        }
+
+        @keyframes slideme {
+           from{
+              transform: translateX(0);
+           }
+
+            to{
+               transform: translateX(-75%);
+            }
         }
     </style>
 </head>
