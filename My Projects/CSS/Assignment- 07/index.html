@@ -9,8 +9,63 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="assests/css/fonts/css/all.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        main{
+            width: 700px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        main>section{
+            height: 100%;
+            width: 400%;
+            display: flex;
+        }
+
+        main>section>div{
+            width: 100%;
+
+        }
+
+        section>div:nth-child(1){
+            background: url("assests/images/img1.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section>div:nth-child(2){
+            background: url("assests/images/img2.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section>div:nth-child(3){
+            background: url("assests/images/img3.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section>div:nth-child(4){
+            background: url("assests/images/img4.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 <body>
-
+<main>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</main>
 </body>
 </html>
