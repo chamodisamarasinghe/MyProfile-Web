@@ -27,7 +27,8 @@
             width: 400%;
             display: flex;
             animation-name: slideme;
-            animation-duration: 3s;
+            animation-direction: alternate;
+            animation-duration: 10s;
         }
 
         main>section>div{
@@ -60,11 +61,20 @@
         }
 
         @keyframes slideme {
-           from{
+           0%,20%{
               transform: translateX(0);
            }
 
-            to{
+            25%,45%{
+                transform: translateX(-25%);
+            }
+
+            50%,75%{
+                transform: translateX(-50%);
+            }
+
+
+            80%,100%{
                transform: translateX(-75%);
             }
         }
