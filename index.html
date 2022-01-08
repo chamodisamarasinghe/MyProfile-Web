@@ -21,6 +21,10 @@
             box-shadow: -2px 6px 45px -4px #917a7a;
         }
 
+        body{
+            background-color: black;
+        }
+
         h2{
             font-size: 50px;
             color: white;
@@ -29,10 +33,10 @@
             font-size: 60px;
             color: yellow;
         }
-        h3{
+        div>h1{
             font-size: 100px;
             color: red;
-            left: 500px;
+            bottom: 500px;
 
         }
 
@@ -57,27 +61,72 @@
             color: yellow;
         }
 
-        section>section>img{
+       main> section>img{
             cursor: pointer;
             color: white;
         }
 
-        body{
-            background-color: black;
-        }
 
         section>div>img{
             border-radius: 200px;
             position: absolute;
-            right: 80px;
+            right: 90px;
             top: 350px;
         }
 
-        section>section>img{
+       main> section>img{
             padding: 0 10px 0 10px;
             position: relative;
-            bottom: 50px;
+            bottom: 350px;
         }
+
+        main>div>img{
+            position: absolute;
+            left: 600px;
+            right: 0;
+            bottom: 250px;
+        }
+
+        @media all and (max-width: 425px){
+            header>nav>ul {
+                position: absolute;
+                right: 0px;
+                left: 0;
+                bottom: 31px;
+                font-size: 14px;
+                margin: auto;
+                margin-left: 14px;
+                padding-left: 0;
+                width: max-content;
+            }
+
+            h1 {
+                font-size: 17px;
+                color: yellow;
+                margin: auto;
+                margin-left: -34px;
+            }
+
+            h2 {
+                font-size: 13px;
+                color: white;
+                margin: auto;
+                margin-left: -17px;
+            }
+
+            main> section>img {
+                bottom: -76px;
+                width: 26px;
+            }
+
+            section>div>img {
+                right: 62px;
+                top: 315px;
+                width: 126px;
+            }
+
+            }
+
     </style>
 </head>
 <body>
@@ -100,18 +149,22 @@
 
         <div>
             <pre><h2><i>     Student at Institute of Software Engineering</i></h2>
-            <h3 >           IJSE</b></h3></pre>
-        </div>
+                <h1>            IJSE</h1>
+            </pre>
 
-        
-        <section>
-        <img src="assests/images/facebook%20(1).png" alt="" width="50"><i></i>
-        <img src="assests/images/linkedin%20(1).png" alt="" width="50">
-        <img src="assests/images/whatsapp.png" alt="" width="50">
+        </div>
+        </section>
+
+
+           <section>
+        <img src="assests/images/facebook%20(1).png" alt="" width="50"><br><br>
+        <img src="assests/images/linkedin%20(1).png" alt="" width="50"><br><br>
+        <img src="assests/images/whatsapp.png" alt="" width="50"><br><br>
         <img src="assests/images/github%20(1).png" alt="" width="50">
         </section>
 
-    </section>
+
+
 
 <section>
     <div>
