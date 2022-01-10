@@ -10,6 +10,158 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
+    <style>
+        h1{
+            color: white;
+            font-size: 40px;
+            position: absolute;
+            margin-left: 100px;
+        }
+
+        body{
+            background-color: black;
+        }
+        main{
+            width: 700px;
+            height: 400px;
+            position: absolute;
+            left: 0px;
+            right: 600px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        main>section{
+            height: 100%;
+            width: 400%;
+            display: flex;
+            animation-name: slideme;
+            animation-direction: alternate;
+            animation-duration: 10s;
+        }
+
+        main>section>div{
+            width: 100%;
+
+        }
+
+        section>div:nth-child(1){
+            background: url("assests/images/1.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section>div:nth-child(2){
+            background: url("assests/images/2.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section>div:nth-child(3){
+            background: url("assests/images/3.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section>div:nth-child(4){
+            background: url("assests/images/4.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section>div:nth-child(5){
+            background: url("assests/images/5.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section>div:nth-child(6){
+            background: url("assests/images/6.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section>div:nth-child(7){
+            background: url("assests/images/7.png");
+            background-size: cover;
+            background-position: center;
+        }
+        section>div:nth-child(8){
+            background: url("assests/images/4.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section>div:nth-child(9){
+            background: url("assests/images/5.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section>div:nth-child(10){
+            background: url("assests/images/7.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        @keyframes slideme {
+            0%,10%{
+                transform: translateX(0);
+            }
+
+            10%,20%{
+                transform: translateX(-10%);
+            }
+
+            20%,30%{
+                transform: translateX(-20%);
+            }
+
+
+            30%,40%{
+                transform: translateX(-30%);
+            }
+
+            40%,50%{
+                transform: translateX(-40);
+            }
+
+            50%,60%{
+                transform: translateX(-50);
+            }
+            60%,70%{
+                transform: translateX(-60);
+            }
+
+            70%,80%{
+                transform: translateX(-70);
+            }
+            80%,90%{
+                transform: translateX(-80);
+            }
+            90%,100%{
+                transform: translateX(-90);
+            }
+        }
+
+        div>ul>li>a>h2{
+            /*position: absolute;*/
+            font-size: 25px;
+            margin-left: 1000px;
+            color: white;
+            top: 10px;
+            font-family: 'Lobster', cursive;
+
+        }
+
+        div>ul>li>a>h2:hover{
+            color: gold;
+        }
+
+    </style>
+
 </head>
 <body>
 
@@ -18,10 +170,38 @@
 </header>
 
 
+<div>
+    <ul>
+        <li><a href="../My%20Projects/CSS/CSS_Positions/Assignment-%2001"><h2>Assignment - 01</h2></a></li>
+        <li><a href="../My%20Projects/CSS/CSS_Positions/Assignment-%2002"><h2>Assignment - 02</h2></a></li>
+        <li><a href="../My%20Projects/CSS/CSS_Positions/Assignment-%2003"><h2>Assignment - 03</h2></a></li>
+        <li><a href="../My%20Projects/CSS/CSS_Positions/Assignment-%2004"><h2>Assignment - 04</h2></a></li><br><br>
+        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2005"><h2>Assignment - 05</h2></a></li>
+        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2006"><h2>Assignment - 06</h2></a></li>
+        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2007"><h2>Assignment - 07</h2></a></li>
+        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2008"><h2>Assignment - 08</h2></a></li>
+        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2009"><h2>Assignment - 09</h2></a></li>
+        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2010"><h2>Assignment - 10</h2></a></li>
+    </ul>
+</div>
+
+<main>
+
+
 
 <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
 
 </section>
-
+</main>
 </body>
 </html>
