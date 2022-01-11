@@ -6,9 +6,40 @@
     <meta name="viewport" content="width=device-width initial-scale=1">
     <meta name="theme -color" content="blue">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="assests/css/fonts/css/all.css" rel="stylesheet">
     <style>
         header{
             color: #4e52e9;
+            font-size: 30px;
+            font-family: "Righteous", cursive;
+            margin-left: 50px;
+            left: 60px;
+            animation-name: changeColors;
+            animation-duration:3s;
+            animation-delay: 3s;
+            animation-iteration-count: infinite;
+
+        }
+
+        @keyframes changeColors {
+            0%,20% {
+                color: yellow;
+            }
+            25% {
+                color: green;
+            }
+            50% {
+                color: deeppink;
+            }
+            75% {
+                color: brown;
+            }
+            100% {
+                color: purple;
+            }
         }
 
         body{
@@ -35,29 +66,29 @@
                 font-size: 9px;
                 bottom: 18px;
                 margin: auto;
-                margin-left: -20px;
+                margin-left: -72px;
             }
             section>img {
                 position: absolute;
-                right: 40px;
-                top: 42px;
-                width: 70px;
+                right: -198px;
+                top: 138px;
+                width: 201px;
             }
         }
 
         @media all and (min-width: 320px) and (max-width: 375px){
             section>ul {
                 color: white;
-                font-size: 9px;
+                font-size: 20px;
                 bottom: 18px;
                 margin: auto;
-                margin-left: -20px;
+                margin-left: -45px;
             }
             section>img {
                 position: absolute;
-                right: 40px;
-                top: 42px;
-                width: 70px;
+                right: -146px;
+                top: 90px;
+                width: 237px;
             }
 
         }
@@ -68,21 +99,21 @@
                 font-size: 15px;
                 bottom: 18px;
                 margin: auto;
-                margin-left: -20px;
+                margin-left: -98px;
             }
             section>img {
                 position: absolute;
-                right: 3px;
-                top: 90px;
-                width: 94px;
+                right: -94px;
+                top: 145px;
+                width: 171px;
             }
         }
         @media all and (min-width: 425px) and (max-width: 768px){
             section>img {
                 position: absolute;
-                right: 3px;
-                top: 63px;
-                width: 92px;
+                right: 0px;
+                top: 36px;
+                width: 263px;
             }
             section>ul {
                 color: white;
@@ -97,14 +128,29 @@
             section>img {
                 position: absolute;
                 right: 0px;
-                top: 0px;
-                width: 326px;
+                top: 36px;
+                width: 263px;
             }
             section>ul {
                 color: white;
                 font-size: 28px;
             }
         }
+
+        section>ul>li>h3{
+            margin-left: 60px;
+            font-size: 30px;
+            font-family: "Righteous", cursive;
+
+
+        }
+
+       section>object{
+           position: absolute;
+           margin-left: 300px;
+       }
+
+
     </style>
 </head>
 
@@ -114,7 +160,9 @@
     <h1>About Me</h1>
 </header>
 
+
     <section>
+
         <ul>
             <li><h3>Name : Chamodi Sandunika Samarasinghe</h3></li>
             <li><h3>Age : 23</h3></li>
@@ -125,12 +173,12 @@
     </section>
 
     <section>
-        <img src="../assests/images/self.png" alt="" width="345" align="right">
+        <img src="../assests/images/self.png" alt="" width="400" align="right">
     </section>
 
       <section>
-          <object data="../assests/resources/PROFILE.pdf" type="application/pdf" width="300" height="300"></object><br>
-          <a href="cv" download="cv">Download CV</a>
+          <object data="../assests/resources/PROFILE.pdf" type="application/pdf" width="800" height="250"></object><br>
+<!--          <a href="cv" download="cv">Download CV</a>-->
       </section>
 
 
