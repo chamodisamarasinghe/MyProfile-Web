@@ -6,7 +6,7 @@ It includes my own details and some assignments.
  Coding style:  HTML, CSS
 
 
-<img src="assests/images/home.png" width="100">
+<img src="assests/images/home.png" width="200">
 
 
 Site Map URL = https://www.gloomaps.com/jEXsYpAHg7
