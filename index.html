@@ -99,10 +99,24 @@
             position: absolute;
             right: 90px;
             top: 350px;
+            animation: zoomin 1s linear 1;
+            animation-delay: 0.1s;
+            visibility: hidden;
+            animation-fill-mode: forwards;
+        }
+        @keyframes zoomin {
+            0%{
+                transform: scale(0.5);
+                visibility: visible;
+            }
+            100%{
+                transform: scale(1);
+                visibility: visible;
+            }
         }
 
        main> section>img{
-            padding: 0 20px 0 20px;
+            padding: 0 50px 0 50px;
             position: relative;
             bottom: 350px;
         }
