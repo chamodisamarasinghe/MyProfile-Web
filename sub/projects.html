@@ -22,8 +22,8 @@
             background-color: black;
         }
         main{
-            width: 800px;
-            height: 400px;
+            width: 850px;
+            height: 450px;
             position: absolute;
             left: 0px;
             right: 600px;
@@ -235,10 +235,38 @@
             }
         }
 
-        @media all and (max-width: 769px) and (max-width: 1025px){
+       @media all and (min-width: 769px) and (max-width: 1025px){
+           h1 {
+               color: white;
+               font-size: 40px;
+               position: absolute;
+               margin-left: 100px;
+           }
+           div>ul>li {
+               color: white;
+               margin-left: -201px;
+           }
+           main {
+               width: 800px;
+               height: 400px;
+               position: absolute;
+               left: 29px;
+               right: 600px;
+               top: 39px;
+               bottom: 0;
+               margin: auto;
+               overflow: hidden;
+           }
 
-
-        }
+           main>section {
+               height: 108%;
+               width: 236%;
+               display: flex;
+               animation-name: slideme;
+               animation-direction: alternate;
+               animation-duration: 10s;
+           }
+       }
     </style>
 
 </head>
