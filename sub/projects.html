@@ -22,7 +22,7 @@
             background-color: black;
         }
         main{
-            width: 700px;
+            width: 800px;
             height: 400px;
             position: absolute;
             left: 0px;
@@ -34,8 +34,8 @@
         }
 
         main>section{
-            height: 100%;
-            width: 400%;
+            height: 129%;
+            width: 500%;
             display: flex;
             animation-name: slideme;
             animation-direction: alternate;
@@ -66,7 +66,7 @@
         }
 
         section>div:nth-child(4){
-            background: url("assests/images/4.png");
+            background: url("assests/images/7.png");
             background-size: cover;
             background-position: center;
         }
@@ -78,7 +78,7 @@
         }
 
         section>div:nth-child(6){
-            background: url("assests/images/6.png");
+            background: url("assests/images/7.png");
             background-size: cover;
             background-position: center;
         }
@@ -159,7 +159,86 @@
         div>ul>li>a>h2:hover{
             color: gold;
         }
+        div>ul>li{
+            color: white;
+        }
 
+        @media all and (max-width: 426px) {
+            h1 {
+                color: white;
+                font-size: 27px;
+                position: absolute;
+                margin-left: 100px;
+            }
+
+            div > ul > li {
+                color: white;
+                margin-left: -317px;
+                font-size: 72px;
+            }
+
+            main > section {
+                height: 54%;
+                width: 27%;
+                display: flex;
+                animation-name: slideme;
+                animation-direction: alternate;
+                animation-duration: 10s;
+                margin-left: 20px;
+                top: 53px;
+            }
+
+            main {
+                width: 1869px;
+                height: 523px;
+                position: absolute;
+                left: 0px;
+                right: 600px;
+                top: 252px;
+                bottom: 0;
+                margin: auto;
+                overflow: hidden;
+            }
+        }
+        @media all and (min-width: 426px) and (max-width: 769px){
+            h1 {
+                color: white;
+                font-size: 40px;
+                position: absolute;
+                margin-left: 100px;
+            }
+            div>ul>li {
+                color: white;
+                margin-left: -495px;
+                font-size: 2px;
+                left: 467px;
+            }
+            main {
+                width: 486px;
+                height: 400px;
+                position: absolute;
+                left: 0px;
+                right: 600px;
+                top: 181px;
+                bottom: 0;
+                margin: auto;
+                overflow: hidden;
+            }
+            main>section {
+                height: 129%;
+                width: 234%;
+                display: flex;
+                animation-name: slideme;
+                animation-direction: alternate;
+                animation-duration: 10s;
+                margin-left: 50px;
+            }
+        }
+
+        @media all and (max-width: 769px) and (max-width: 1025px){
+
+
+        }
     </style>
 
 </head>
