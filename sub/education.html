@@ -117,6 +117,24 @@
             margin-left: 1100px;
             margin-top: 20px;
         }
+
+        ul>li{
+            animation: zoomin 1s linear 1;
+            animation-delay: 0.1s;
+            visibility: hidden;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes zoomin {
+            0%{
+                transform: scale(0.5);
+                visibility: visible;
+            }
+            100%{
+                transform: scale(1);
+                visibility: visible;
+            }
+        }
     </style>
 </head>
 

@@ -150,6 +150,40 @@
            margin-left: 300px;
        }
 
+        section>img{
+            animation: zoomin 1s linear 1;
+            animation-delay: 0.1s;
+            visibility: hidden;
+            animation-fill-mode: forwards;
+        }
+        @keyframes zoomin {
+            0%{
+                transform: scale(0.5);
+                visibility: visible;
+            }
+            100%{
+                transform: scale(1);
+                visibility: visible;
+            }
+        }
+
+        section>ul{
+            animation: zoomin 1s linear 1;
+            animation-delay: 0.1s;
+            visibility: hidden;
+            animation-fill-mode: forwards;
+        }
+        @keyframes zoomin {
+            0%{
+                transform: scale(0.5);
+                visibility: visible;
+            }
+            100%{
+                transform: scale(1);
+                visibility: visible;
+            }
+        }
+
 
     </style>
 </head>
@@ -173,7 +207,7 @@
     </section>
 
     <section>
-        <img src="../assests/images/self.png" alt="" width="400" align="right">
+        <img src="../assests/images/self.png" alt="" width="325" align="right">
     </section>
 
       <section>

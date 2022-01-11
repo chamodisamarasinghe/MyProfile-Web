@@ -15,7 +15,7 @@
         h1{
             color: #4e52e9;
             font-family: 'Lobster', cursive;
-            font-size: 70px;
+            font-size: 50px;
         }
 
 
@@ -54,6 +54,42 @@
 
         h3{
             font-size: 20px;
+            animation: zoomin 1s linear 1;
+            animation-delay: 0.1s;
+            visibility: hidden;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes zoomin {
+            0%{
+                transform: scale(0.5);
+                visibility: visible;
+            }
+            100%{
+                transform: scale(1);
+                visibility: visible;
+            }
+        }
+
+        header>img{
+            position: absolute;
+            width: 600px;
+            margin-left: 250px;
+            margin-top: 40px;
+            animation: zoomin 1s linear 1;
+            animation-delay: 0.1s;
+            visibility: hidden;
+            animation-fill-mode: forwards;
+        }
+        @keyframes zoomin {
+            0%{
+                transform: scale(0.5);
+                visibility: visible;
+            }
+            100%{
+                transform: scale(1);
+                visibility: visible;
+            }
         }
 
         @media all and (max-width: 768px){
@@ -132,6 +168,7 @@
 
 <header>
     <h1>Contact Me</h1>
+    <img src="../assests/images/cll.png" alt="" width="50" >
 </header>
 
 <main>
