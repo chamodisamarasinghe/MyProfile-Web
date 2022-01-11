@@ -14,30 +14,115 @@
 
         header>h1{
             font-size: 50px;
-            color: white;
+            color: yellow;
+            /*margin-left: 150px;*/
+            animation-name: test;
+            animation-duration: 5s;
+            position: relative;
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: forwards;
         }
 
-        ul>li{
-            color: white;
+        @keyframes test {
+            from {
+                left: 0;
+            }
+            to {
+                left: 300px;
+            }
+
         }
 
         section>div>img{
             position: absolute;
-            top: 241px;
-            margin: auto;
-            margin-left: 21px;
-            width: 962px;
-            top: 202px;
+            width: 1100px;
+            margin-top: 100px;
         }
 
-
-
-        section>section>div>img{
+        main>div:nth-child(1){
             position: absolute;
+            width: 100px;
+            margin-left: 150px;
+            margin-top: 80px;
         }
 
+        main>div:nth-child(2){
+            position: absolute;
+            width: 50px;
+            margin-left: 300px;
+            margin-top: 60px;
+        }
+
+        main>div:nth-child(3){
+            position: absolute;
+            width: 50px;
+            margin-left: 420px;
+            margin-top: 40px;
+        }
+
+        main>div:nth-child(4){
+            position: absolute;
+            width: 50px;
+            margin-left: 550px;
+            margin-top: 20px;
+        }
+
+        main>div:nth-child(5){
+            position: absolute;
+            width: 50px;
+            margin-left: 670px;
+            margin-top: -2px;
+        }
+
+        /*section>div>h3:nth-child(1){*/
+        /*    position: absolute;*/
+        /*    margin-left: -100px;*/
+        /*    color: white;*/
+        /*    margin-top: 400px;*/
+        /*}*/
+
+        /*section>div>h3:nth-child(2){*/
+        /*    !*position: absolute;*!*/
+        /*    margin-left: -1000px;*/
+        /*    color: white;*/
+        /*    margin-top: 400px;*/
+        /*}*/
+
+        section>main>div>:nth-child(1){
+            position: absolute;
+            margin-left: -10px;
+            margin-top: -40px;
+
+        }
+
+        section>main>div>:nth-child(2){
+            position: absolute;
+            margin-left: 5px;
+            margin-top: 600px;
+
+        }
+
+        section>main>div>:nth-child(3){
+            position: absolute;
+            margin-left: 5px;
+            margin-top: 1000px;
+            top: 700px;
+
+        }
+
+        section>ul>li{
+            color: white;
+            /*position: absolute;*/
+            margin-left: 1100px;
+            margin-top: 20px;
+        }
     </style>
 </head>
+
+
+
+
 <body>
 
 <header>
@@ -46,19 +131,41 @@
 
 <section>
     <div>
-        <img src="../assests/images/edu.jpg" alt="" width="100" >
+        <img src="../assests/images/edu.jpg" alt="" width="50" align="center">
     </div>
-
-<section>
-    <section>
-        <div><img src="../assests/images/daughter.png" alt="" width="50" align="center"></div>
-        <div><img src="../assests/images/student.png" alt="" width="50" align="center"></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </section>
 </section>
 
+
+<main>
+
+        <div><img src="../assests/images/daughter.png" alt="" width="90" align="center"></div>
+        <div><img src="../assests/images/sclgi.png" alt="" width="100" align="center"></div>
+        <div><img src="../assests/images/girl.png" alt="" width="120" align="center"></div>
+        <div><img src="../assests/images/girl%20(1).png" alt="" width="130" align="center"></div>
+        <div><img src="../assests/images/graduate.png" alt="" width="150" align="center"></div>
+
+</main>
+
+
+<section>
+    <ul>
+        <li><h3>1-5 (2004-2008) Deniyaya Central College</h3></li><br>
+        <li><h3>6-13 (2011-2017) Southlands College</h3></li><br>
+        <li><h3>Open University</h3></li><br>
+        <li><h3>The Beeline English Acadamy</h3></li><br>
+        <li><h3>Higher Studies (2019-2022) Institute of Software Engineering</h3></li>
+    </ul>
+</section>
+
+<section>
+    <main>
+        <div><img src="../assests/images/den.png" alt="" width="100" align="center"></div>
+        <div><img src="../assests/images/SouthlandsCollege.jpg" alt="" width="100" align="center"></div>
+        <div><img src="../assests/images/open.jpg" alt="" width="100" align="center"></div>
+        <div><img src="../assests/images/bee.png" alt="" width="100" align="center"></div>
+        <div><img src="../assests/images/ijse.png" alt="" width="100" align="center"></div>
+    </main>
+</section>
 
 <!--    <ul>-->
 <!--        <div>-->
@@ -82,8 +189,7 @@
 <!--        <img src="../assests/images/bee.png" alt="" width="50" align="center">-->
 <!--        <li><h3>The Beeline English Acadamy</h3></li>-->
 
-<!--    </ul>-->
-</section>
+
 
 </body>
 </html>
