@@ -15,32 +15,49 @@
             color: #4e52e9;
             font-size: 30px;
             font-family: "Righteous", cursive;
-            margin-left: 50px;
-            left: 60px;
-            animation-name: changeColors;
-            animation-duration:3s;
-            animation-delay: 3s;
-            animation-iteration-count: infinite;
-
+            margin-left: 150px;
+            left: 160px;
+            animation: moveright 1s linear;
+            animation-delay: 0.1s;
+            visibility: hidden;
+            animation-fill-mode: forwards;
         }
 
-        @keyframes changeColors {
-            0%,20% {
-                color: yellow;
-            }
-            25% {
-                color: green;
-            }
-            50% {
-                color: deeppink;
-            }
-            75% {
-                color: brown;
+        @keyframes moveright {
+            0% {
+                transform: translateX(-100px);
+                visibility: visible;
             }
             100% {
-                color: purple;
+                transform: translateX(0);
+                visibility: visible;
             }
         }
+
+        /*    animation-name: changeColors;*/
+        /*    animation-duration:3s;*/
+        /*    animation-delay: 3s;*/
+        /*    animation-iteration-count: infinite;*/
+
+        /*}*/
+
+        /*@keyframes changeColors {*/
+        /*    0%,20% {*/
+        /*        color: yellow;*/
+        /*    }*/
+        /*    25% {*/
+        /*        color: green;*/
+        /*    }*/
+        /*    50% {*/
+        /*        color: deeppink;*/
+        /*    }*/
+        /*    75% {*/
+        /*        color: brown;*/
+        /*    }*/
+        /*    100% {*/
+        /*        color: purple;*/
+        /*    }*/
+        /*}*/
 
         body{
             background-color: #1d1e57;
@@ -63,32 +80,40 @@
         @media all and (max-width: 320px){
             section>ul {
                 color: white;
-                font-size: 9px;
+                font-size: 28px;
                 bottom: 18px;
                 margin: auto;
-                margin-left: -72px;
+                margin-left: -34px;
             }
             section>img {
                 position: absolute;
-                right: -198px;
-                top: 138px;
-                width: 201px;
+                right: -779px;
+                top: 90px;
+                width: 352px;
+            }
+            section>object {
+                position: absolute;
+                margin-left: 254px;
             }
         }
 
         @media all and (min-width: 320px) and (max-width: 375px){
             section>ul {
                 color: white;
-                font-size: 20px;
+                font-size: 15px;
                 bottom: 18px;
                 margin: auto;
-                margin-left: -45px;
+                margin-left: -2px
             }
             section>img {
                 position: absolute;
-                right: -146px;
-                top: 90px;
-                width: 237px;
+                right: -683px;
+                top: 27px;
+                width: 376px;
+            }
+            section>object {
+                position: absolute;
+                margin-left: 225px;
             }
 
         }
@@ -111,29 +136,37 @@
         @media all and (min-width: 425px) and (max-width: 768px){
             section>img {
                 position: absolute;
-                right: 0px;
+                right: -601px;
                 top: 36px;
-                width: 263px;
+                width: 375px;
             }
             section>ul {
                 color: white;
                 font-size: 15px;
                 bottom: 18px;
                 margin: auto;
-                margin-left: -20px;
+                margin-left: 60px;
+            }
+            section>object {
+                position: absolute;
+                margin-left: 194px;
             }
         }
 
         @media all and (min-width: 768px) and (max-width: 1024px){
             section>img {
                 position: absolute;
-                right: 0px;
-                top: 36px;
-                width: 263px;
+                right: -231px;
+                top: -33px;
+                width: 281px;
             }
             section>ul {
                 color: white;
                 font-size: 28px;
+            }
+            section>object {
+                position: absolute;
+                margin-left: 167px;
             }
         }
 
@@ -152,7 +185,7 @@
 
         section>img{
             animation: zoomin 1s linear 1;
-            animation-delay: 0.1s;
+            animation-delay: 2s;
             visibility: hidden;
             animation-fill-mode: forwards;
         }
@@ -168,21 +201,38 @@
         }
 
         section>ul{
-            animation: zoomin 1s linear 1;
-            animation-delay: 0.1s;
+            animation: moveright 1s linear;
+            animation-delay: 1s;
             visibility: hidden;
             animation-fill-mode: forwards;
         }
-        @keyframes zoomin {
-            0%{
-                transform: scale(0.5);
+
+        @keyframes moveright {
+            0% {
+                transform: translateX(-100px);
                 visibility: visible;
             }
-            100%{
-                transform: scale(1);
+            100% {
+                transform: translateX(0);
                 visibility: visible;
             }
         }
+
+        /*    animation: zoomin 1s linear 1;*/
+        /*    animation-delay: 0.1s;*/
+        /*    visibility: hidden;*/
+        /*    animation-fill-mode: forwards;*/
+        /*}*/
+        /*@keyframes zoomin {*/
+        /*    0%{*/
+        /*        transform: scale(0.5);*/
+        /*        visibility: visible;*/
+        /*    }*/
+        /*    100%{*/
+        /*        transform: scale(1);*/
+        /*        visibility: visible;*/
+        /*    }*/
+
 
 
     </style>
@@ -207,7 +257,7 @@
     </section>
 
     <section>
-        <img src="../assests/images/self.png" alt="" width="325" align="right">
+        <img src="../assests/images/self.png" alt="" width="370" align="right">
     </section>
 
       <section>

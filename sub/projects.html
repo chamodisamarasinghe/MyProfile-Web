@@ -21,130 +21,9 @@
         body{
             background-color: black;
         }
-        /*main{*/
-        /*    width: 850px;*/
-        /*    height: 450px;*/
-        /*    position: absolute;*/
-        /*    left: 0px;*/
-        /*    right: 600px;*/
-        /*    top: 20px;*/
-        /*    bottom: 0;*/
-        /*    margin: auto;*/
-        /*    overflow: hidden;*/
-        /*}*/
-
-        /*main>section{*/
-        /*    height: 129%;*/
-        /*    width: 500%;*/
-        /*    display: flex;*/
-        /*    animation-name: slideme;*/
-        /*    animation-direction: alternate;*/
-        /*    animation-duration: 10s;*/
-        /*}*/
-
-        /*main>section>div{*/
-        /*    width: 100%;*/
-
-        /*}*/
-
-        /*section>div:nth-child(1){*/
-        /*    background: url("assests/images/1.png");*/
-        /*    background-size: cover;*/
-        /*    background-position: center;*/
-        /*}*/
-
-        /*section>div:nth-child(2){*/
-        /*    background: url("assests/images/2.png");*/
-        /*    background-size: cover;*/
-        /*    background-position: center;*/
-        /*}*/
-
-        /*section>div:nth-child(3){*/
-        /*    background: url("assests/images/3.png");*/
-        /*    background-size: cover;*/
-        /*    background-position: center;*/
-        /*}*/
-
-        /*section>div:nth-child(4){*/
-        /*    background: url("assests/images/7.png");*/
-        /*    background-size: cover;*/
-        /*    background-position: center;*/
-        /*}*/
-
-        /*section>div:nth-child(5){*/
-        /*    background: url("assests/images/5.png");*/
-        /*    background-size: cover;*/
-        /*    background-position: center;*/
-        /*}*/
-
-        /*section>div:nth-child(6){*/
-        /*    background: url("assests/images/7.png");*/
-        /*    background-size: cover;*/
-        /*    background-position: center;*/
-        /*}*/
-
-        /*section>div:nth-child(7){*/
-        /*    background: url("assests/images/7.png");*/
-        /*    background-size: cover;*/
-        /*    background-position: center;*/
-        /*}*/
-        /*section>div:nth-child(8){*/
-        /*    background: url("assests/images/4.png");*/
-        /*    background-size: cover;*/
-        /*    background-position: center;*/
-        /*}*/
-
-        /*section>div:nth-child(9){*/
-        /*    background: url("assests/images/5.png");*/
-        /*    background-size: cover;*/
-        /*    background-position: center;*/
-        /*}*/
-
-        /*section>div:nth-child(10){*/
-        /*    background: url("assests/images/7.png");*/
-        /*    background-size: cover;*/
-        /*    background-position: center;*/
-        /*}*/
-
-        /*@keyframes slideme {*/
-        /*    0%,10%{*/
-        /*        transform: translateX(0);*/
-        /*    }*/
-
-        /*    10%,20%{*/
-        /*        transform: translateX(-10%);*/
-        /*    }*/
-
-        /*    20%,30%{*/
-        /*        transform: translateX(-20%);*/
-        /*    }*/
 
 
-        /*    30%,40%{*/
-        /*        transform: translateX(-30%);*/
-        /*    }*/
 
-        /*    40%,50%{*/
-        /*        transform: translateX(-40);*/
-        /*    }*/
-
-        /*    50%,60%{*/
-        /*        transform: translateX(-50);*/
-        /*    }*/
-        /*    60%,70%{*/
-        /*        transform: translateX(-60);*/
-        /*    }*/
-
-        /*    70%,80%{*/
-        /*        transform: translateX(-70);*/
-        /*    }*/
-        /*    80%,90%{*/
-        /*        transform: translateX(-80);*/
-        /*    }*/
-        /*    90%,100%{*/
-        /*        transform: translateX(-90);*/
-        /*    }*/
-        /*}*/
 
         div>ul>li>a>h2{
             /*position: absolute;*/
@@ -175,110 +54,60 @@
 
         @media all and (max-width: 426px) {
             h1 {
-                color: white;
-                font-size: 27px;
+                color: yellow;
+                font-size: 31px;
+                /* position: absolute; */
+                margin-left: 105px;
+            }
+            section>div>img {
                 position: absolute;
-                margin-left: 100px;
-            }
-
-            div > ul > li {
-                color: white;
-                margin-left: -317px;
-                font-size: 72px;
-            }
-
-            main > section {
-                height: 54%;
-                width: 27%;
-                display: flex;
-                animation-name: slideme;
-                animation-direction: alternate;
-                animation-duration: 10s;
-                margin-left: 20px;
-                top: 53px;
-            }
-
-            main {
-                width: 1869px;
-                height: 523px;
-                position: absolute;
-                left: 0px;
-                right: 600px;
-                top: 252px;
-                bottom: 0;
-                margin: auto;
-                overflow: hidden;
-            }
-        }
-        @media all and (min-width: 426px) and (max-width: 769px){
-            h1 {
-                color: white;
-                font-size: 40px;
-                position: absolute;
-                margin-left: 100px;
+                margin-top: -641px;
+                width: 245px;
+                animation: zoomin 1s linear 1;
+                animation-delay: 0.1s;
+                visibility: hidden;
+                animation-fill-mode: forwards;
             }
             div>ul>li {
                 color: white;
-                margin-left: -495px;
-                font-size: 2px;
-                left: 467px;
+                margin-left: -822px;
+                margin-bottom: 1px;
+                margin-top: 6px;
             }
-            main {
-                width: 486px;
-                height: 400px;
+        }
+        @media all and (min-width: 426px) and (max-width: 769px){
+            section>div>img {
                 position: absolute;
-                left: 0px;
-                right: 600px;
-                top: 181px;
-                bottom: 0;
-                margin: auto;
-                overflow: hidden;
+                margin-top: -641px;
+                width: 245px;
+                animation: zoomin 1s linear 1;
+                animation-delay: 0.1s;
+                visibility: hidden;
+                animation-fill-mode: forwards;
             }
-            main>section {
-                height: 129%;
-                width: 234%;
-                display: flex;
-                animation-name: slideme;
-                animation-direction: alternate;
-                animation-duration: 10s;
-                margin-left: 50px;
+            div>ul>li {
+                color: white;
+                margin-left: -749px;
             }
         }
 
-       @media all and (min-width: 769px) and (max-width: 1025px){
-           h1 {
-               color: white;
-               font-size: 40px;
-               position: absolute;
-               margin-left: 100px;
-           }
+       @media all and (min-width: 769px) and (max-width: 1025px) {
            div>ul>li {
                color: white;
-               margin-left: -201px;
-
-
+               margin-left: -387px;
            }
-           main {
-               width: 800px;
-               height: 400px;
+           section>div>img {
                position: absolute;
-               left: 29px;
-               right: 600px;
-               top: 39px;
-               bottom: 0;
-               margin: auto;
-               overflow: hidden;
-           }
-
-           main>section {
-               height: 108%;
-               width: 236%;
-               display: flex;
-               animation-name: slideme;
-               animation-direction: alternate;
-               animation-duration: 10s;
+               margin-top: -499px;
+               width: 581px;
+               animation: zoomin 1s linear 1;
+               animation-delay: 0.1s;
+               visibility: hidden;
+               animation-fill-mode: forwards;
            }
        }
+
+
 
         section>div>img{
             position: absolute;
@@ -330,15 +159,7 @@
 
 <section>
         <div><img src="../assests/images/read.png" alt="" width="900" align="center"></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+
 
 </section>
 </main>

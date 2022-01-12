@@ -15,24 +15,41 @@
         header>h1{
             font-size: 50px;
             color: yellow;
-            /*margin-left: 150px;*/
-            animation-name: test;
-            animation-duration: 5s;
-            position: relative;
-            animation-iteration-count: 1;
-            animation-direction: normal;
+            margin-left: 300px;
+            animation: moveright 1s linear;
+            animation-delay: 1s;
+            visibility: hidden;
             animation-fill-mode: forwards;
         }
 
-        @keyframes test {
-            from {
-                left: 0;
+        @keyframes moveright {
+            0% {
+                transform: translateX(-100px);
+                visibility: visible;
             }
-            to {
-                left: 300px;
+            100% {
+                transform: translateX(0);
+                visibility: visible;
             }
-
         }
+            /*margin-left: 150px;*/
+        /*    animation-name: test;*/
+        /*    animation-duration: 5s;*/
+        /*    position: relative;*/
+        /*    animation-iteration-count: 1;*/
+        /*    animation-direction: normal;*/
+        /*    animation-fill-mode: forwards;*/
+        /*}*/
+
+        /*@keyframes test {*/
+        /*    from {*/
+        /*        left: 0;*/
+        /*    }*/
+        /*    to {*/
+        /*        left: 300px;*/
+        /*    }*/
+
+        /*}*/
 
         section>div>img{
             position: absolute;
@@ -162,10 +179,24 @@
             margin-top: -80px;
         }
 
-        @media all and (max-width: 426px){
+       section>div>img{
+           animation: zoomin 1s linear 1;
+           animation-delay: 0.1s;
+           visibility: hidden;
+           animation-fill-mode: forwards;
+       }
 
-
+        @keyframes zoomin {
+            0%{
+                transform: scale(0.5);
+                visibility: visible;
+            }
+            100%{
+                transform: scale(1);
+                visibility: visible;
+            }
         }
+
 
 
     </style>
