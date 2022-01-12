@@ -153,8 +153,18 @@
             color: white;
             top: -10px;
             font-family: 'Lobster', cursive;
-
+            animation: movedown 1s linear;
         }
+
+        @keyframes movedown {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
 
         div>ul>li>a>h2:hover{
             color: gold;
@@ -245,6 +255,8 @@
            div>ul>li {
                color: white;
                margin-left: -201px;
+
+
            }
            main {
                width: 800px;

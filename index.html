@@ -29,34 +29,65 @@
         h2{
             font-size: 50px;
             color: white;
+            animation: moveright 1s linear;
+            animation-delay: 1s;
+            visibility: hidden;
+            animation-fill-mode: forwards;
         }
+
+        @keyframes moveright {
+            0% {
+                transform: translateX(-100px);
+                visibility: visible;
+            }
+            100% {
+                transform: translateX(0);
+                visibility: visible;
+            }
+        }
+
         h1{
             font-size: 60px;
             color: yellow;
-            animation-name: changeColors;
-            animation-duration:3s;
-            animation-delay: 1s;
-            animation-iteration-count: infinite;
-            /*font-family: "Righteous", cursive;*/
+            /*animation-name: changeColors;*/
+            /*animation-duration:3s;*/
+            /*animation-delay: 1s;*/
+            /*animation-iteration-count: infinite;*/
+            animation: moveright 1s linear;
+            animation-delay: 0.1s;
+            visibility: hidden;
+            animation-fill-mode: forwards;
         }
 
-        @keyframes changeColors {
-            0%,20% {
-                color: yellow;
-            }
-            25% {
-                color: dodgerblue;
-            }
-            50% {
-                color: darkslateblue;
-            }
-            75% {
-                color: blue;
+        @keyframes moveright {
+            0% {
+                transform: translateX(-100px);
+                visibility: visible;
             }
             100% {
-                color: darkblue;
+                transform: translateX(0);
+                visibility: visible;
             }
         }
+
+
+        /*@keyframes changeColors {*/
+        /*    0%,20% {*/
+        /*        color: yellow;*/
+        /*    }*/
+        /*    25% {*/
+        /*        color: dodgerblue;*/
+        /*    }*/
+        /*    50% {*/
+        /*        color: darkslateblue;*/
+        /*    }*/
+        /*    75% {*/
+        /*        color: blue;*/
+        /*    }*/
+        /*    100% {*/
+        /*        color: darkblue;*/
+        /*    }*/
+        /*}*/
 
 
         h3{
@@ -65,8 +96,23 @@
             bottom: 300px;
             margin-left: 200px;
             margin-top: -65px;
-
+            animation: moveright 1s linear;
+            animation-delay: 2s;
+            visibility: hidden;
+            animation-fill-mode: forwards;
         }
+
+        @keyframes moveright {
+            0% {
+                transform: translateX(-100px);
+                visibility: visible;
+            }
+            100% {
+                transform: translateX(0);
+                visibility: visible;
+            }
+        }
+
 
         header>nav>ul{
             position: absolute;
@@ -100,7 +146,7 @@
             position: absolute;
             right: 90px;
             top: 350px;
-            animation: zoomin 4s linear 1;
+            animation: zoomin 3s linear 1;
             animation-delay: 0.1s;
             visibility: hidden;
             animation-fill-mode: forwards;
@@ -120,6 +166,7 @@
             padding: 0 50px 0 50px;
             position: relative;
             bottom: 350px;
+           overflow: hidden;
         }
 
         main>div>img{
@@ -384,7 +431,7 @@
            <li><a href="sub/aboutme.html">About</a></li>
            <li><a href="sub/education.html">Education</a></li>
            <li><a href="sub/skills.html">Skills</a></li>
-           <li><a href="sub/projects.html">Projects</a></li>
+           <li><a href="sub/assignmens.html">Projects</a></li>
            <li><a href="sub/projects.html">Assignments</a></li>
            <li><a href="sub/contactme.html">Contact</a></li>
        </ul>
@@ -421,7 +468,7 @@
 <section>
     <div>
 <!--        <img src="assests/images/about.jpg" alt="" width="180" align="right">-->
-        <img src="assests/images/san.png" alt="" width="450">
+        <img src="assests/images/san.png" alt="" width="445">
     </div>
 
 </section>
