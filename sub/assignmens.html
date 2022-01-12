@@ -18,6 +18,9 @@
 
     h1{
         color: white;
+        position: absolute;
+        margin-left: 600px;
+        font-size: 50px;
     }
     h2{
         color: white;
@@ -49,38 +52,74 @@
 
     h3{
         color: white;
+        font-size: 30px;
     }
 
     section1>h2{
         position: absolute;
         margin-left: 350px;
-        margin-top: -300px;
+        margin-top: 100px;
 
     }
 
     section2>h2{
         position: absolute;
-        margin-left: 700px;
-        margin-top: -300px;
+        margin-left: 800px;
+        margin-top: 100px;
     }
 
     section3>h2{
         position: absolute;
-        margin-left: 1000px;
-        margin-top: -300px;
+        margin-left: 1100px;
+        margin-top: 100px;
     }
 
     section1>ul{
         position: absolute;
         margin-left: 300px;
-        margin-top: -200px;
+        margin-top: 200px;
+    }
+
+    section>div1{
+        position: absolute;
+        margin-left: 0px;
+        margin-top: 100px;
+        animation: zoomin 3s linear 1;
+        animation-delay: 0.1s;
+        visibility: hidden;
+        animation-fill-mode: forwards;
+    }
+    @keyframes zoomin {
+        0%{
+            transform: scale(0.5);
+            visibility: visible;
+        }
+        100%{
+            transform: scale(1);
+            visibility: visible;
+        }
     }
 
     section>div2{
         position: absolute;
-        margin-left: 900px;
+        margin-left: 1200px;
         margin-top: 300px;
+        animation: zoomin 5s linear 1;
+        animation-delay: 1s;
+        visibility: hidden;
+        animation-fill-mode: forwards;
     }
+    @keyframes zoomin {
+        0%{
+            transform: scale(0.5);
+            visibility: visible;
+        }
+        100%{
+            transform: scale(1);
+            visibility: visible;
+        }
+    }
+
 </style>
 
 
