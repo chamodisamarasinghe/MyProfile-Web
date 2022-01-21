@@ -23,7 +23,7 @@
         border-color: inherit;
         border-style: solid;
         border-width: 0;
-        background-color: #2DABB4;
+        background-color: #58D68D;
         width: 100px;
     }
 
@@ -38,7 +38,7 @@
 
 </style>
 <body>
-<main>
+<main class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Uresha POS System</a>
@@ -89,7 +89,7 @@
 
             <div class="col-12">
                 <label for="inputAddress" class="form-label">Order Date</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="10/09/2022">
+                <input type="text" class="form-control" id="Address" placeholder="10/09/2022">
             </div>
 
             <div class="row g-2">
@@ -127,36 +127,8 @@
                     <label for="inputAddress" class="form-label">Address</label>
                     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                 </div>
-<!--                <div class="col-12">-->
-<!--                    <label for="inputAddress2" class="form-label">Address 2</label>-->
-<!--                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <label for="inputCity" class="form-label">City</label>-->
-<!--                    <input type="text" class="form-control" id="inputCity">-->
-<!--                </div>-->
-<!--                <div class="col-md-4">-->
-<!--                    <label for="inputState" class="form-label">State</label>-->
-<!--                    <select id="inputState" class="form-select">-->
-<!--                        <option selected>Choose...</option>-->
-<!--                        <option>...</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!--                <div class="col-md-2">-->
-<!--                    <label for="inputZip" class="form-label">Zip</label>-->
-<!--                    <input type="text" class="form-control" id="inputZip">-->
-<!--                </div>-->
-<!--                <div class="col-12">-->
-<!--                    <div class="form-check">-->
-<!--                        <input class="form-check-input" type="checkbox" id="gridCheck">-->
-<!--                        <label class="form-check-label" for="gridCheck">-->
-<!--                            Check me out-->
-<!--                        </label>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-12">-->
-<!--                    <button type="submit" class="btn btn-primary">Sign in</button>-->
-<!--                </div>-->
+
+
             </form>
         </div>
 
@@ -224,13 +196,36 @@
                 </div>
             </div>
 
-            <select class="form-select" size="3" aria-label="size 3 select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+
+            <section class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Cash</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="0.00">
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <select class="form-select" multiple aria-label="multiple select example">
+                        <option selected>Discount</option>
+<!--                        <option value="1">One</option>-->
+<!--                        <option value="2">Two</option>-->
+<!--                        <option value="3">Three</option>-->
+                    </select>
+                </div>
+            </section>
+
+
+            <section class="row">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Balance</label>
+                    <input type="email" class="form-control" id="example" placeholder="0.00">
+                </div>
+            </section>
+            <button type="button" class="btn btn-success">Purchase Order</button>
         </div>
+
     </section>
 
 <!--    row 2-->
