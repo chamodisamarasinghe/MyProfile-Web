@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Place order</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+
+    .navbar-light .navbar-brand {
+        color: rgb(28 145 58 );
+        font-size: 25px;
+        font-weight: bolder;
+    }
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+        color: white;
+    }
+
+    tbody, td, tfoot, th, thead, tr {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+        background-color: #58D68D;
+        width: 100px;
+    }
+
+    .table {
+
+        width: 98%;
+        margin-bottom: 1rem;
+        margin-left: 10px;
+
+
+    }
+
+</style>
+<body>
+<main class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Uresha POS System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Items</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Others
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <section class="row mt-5">
+<!--        column 1-->
+        <div class="col border border-4">
+            <div class="card bg-success fw-bold">
+                <div class="card-body">
+                   Invoice Details
+                </div>
+            </div>
+
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Order Date</label>
+                <input type="text" class="form-control" id="Address" placeholder="10/09/2022">
+            </div>
+
+            <div class="row g-2">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="O-001">
+                        <label for="floatingInputGrid">Order Id</label>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                            <option selected>C-001</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="floatingSelectGrid">Customer Id</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <form class="row g-3">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Name</label>
+                    <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Salary</label>
+                    <input type="password" class="form-control" id="inputPassword4">
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+
+
+            </form>
+        </div>
+
+
+
+<!--        column 2-->
+
+        <div class="col border border-4">
+            <div class="card bg-success fw-bold">
+                <div class="card-body">
+                   Item Select
+                </div>
+            </div>
+
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Item Code</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Item</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Sugar">
+            </div>
+
+
+            <form class="row g-3">
+
+
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Price</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">Qty On Hand</label>
+                    <select id="inputState" class="form-select">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="inputZip" class="form-label">Qty</label>
+                    <input type="text" class="form-control" id="inputZip">
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                            Check me out
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 ">
+                    <button type="submit" class="btn btn-primary bg-danger">Add Item</button>
+                </div>
+            </form>
+        </div>
+
+<!--        column 3-->
+        <div class="col border border-5">
+            <div class="card bg-success fw-bold">
+                <div class="card-body">
+                    Item Select
+                </div>
+            </div>
+
+
+            <section class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Cash</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="0.00">
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <select class="form-select" multiple aria-label="multiple select example">
+                        <option selected>Discount</option>
+<!--                        <option value="1">One</option>-->
+<!--                        <option value="2">Two</option>-->
+<!--                        <option value="3">Three</option>-->
+                    </select>
+                </div>
+            </section>
+
+
+            <section class="row">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Balance</label>
+                    <input type="email" class="form-control" id="example" placeholder="0.00">
+                </div>
+            </section>
+            <button type="button" class="btn btn-success">Purchase Order</button>
+        </div>
+
+    </section>
+
+<!--    row 2-->
+    <section class="row mt-5">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Item Code</th>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>I-001</td>
+                <td>Sugar</td>
+                <td>700.00</td>
+                <td>5</td>
+                <td>3500.00</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </section>
+
+</main>
+</body>
+</html>
