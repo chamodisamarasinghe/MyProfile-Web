@@ -6,7 +6,193 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+<style>
 
+    .navbar-light .navbar-brand {
+        color: rgb(28 145 58 );
+        font-size: 25px;
+        font-weight: bolder;
+    }
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+        color: white;
+    }
+
+    tbody, td, tfoot, th, thead, tr {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+        background-color: #58D68D;
+        width: 100px;
+    }
+
+    .table {
+
+        width: 98%;
+        margin-bottom: 1rem;
+        margin-left: 10px;
+    }
+
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: row;
+        font-weight: bold;
+    }
+
+    /*.row>* {*/
+    /*    flex-shrink: 0;*/
+    /*    width: 100%;*/
+    /*    max-width: 100%;*/
+    /*    padding-right: calc(var(--bs-gutter-x) * .5);*/
+    /*    padding-left: calc(var(--bs-gutter-x) * .5);*/
+    /*    margin-left: 905px;*/
+    /*    margin-top: -547px;*/
+    /*    color: orange;*/
+    /*    font-weight: bolder;*/
+    /*}*/
+    .h1, h1 {
+        font-size: calc(1.375rem + 1.5vw);
+        color: orange;
+        font-weight: bolder;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #574f43;
+        font-size: 30px;
+    }
+    .navbar-expand-lg .navbar-collapse {
+        display: flex!important;
+        flex-basis: auto;
+        font-size: 28px;
+    }
+
+</style>
+
+
+
+<body>
+<main class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Uresha POS System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Items</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Others
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Customer Manage</a></li>
+                        <li><a class="dropdown-item" href="#">Item Manage</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Purchase Order</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!--slide images-->
+    <section class="row">
+<section class="col mt-5">
+
+<!--    <section class="container-fluid">-->
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/images/image1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image4.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image6.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+</section>
+
+
+
+
+<!--Title-->
+<section class="col">
+    <div>
+        <h1>Fresh & Organic Foods For You</h1>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="assets/images/harvest.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Fresh and Organic</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="assets/images/delivery.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Fresh and Organic</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+</section>
+
+
+    </section>
+
+
+
+
+
+
+</main>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
