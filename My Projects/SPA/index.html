@@ -157,7 +157,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" id="linkHome" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Orders</a>
@@ -171,10 +171,10 @@
                         Others
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="new%20customer.html">Customer Manage</a></li>
-                        <li><a class="dropdown-item" href="new%20item.html">Item Manage</a></li>
+                        <li><a class="dropdown-item" id="linkCustomer" href="#">Customer Manage</a></li>
+                        <li><a class="dropdown-item" id="linkItem" href="#">Item Manage</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="placeorder.html">Purchase Order</a></li>
+                        <li><a class="dropdown-item" id="linkOrder" href="#">Purchase Order</a></li>
                     </ul>
                 </li>
 
@@ -187,10 +187,11 @@
     </div>
 </nav>
 
+
+    <section id="dashBoard">
     <section>
     <p class="fw-bold">Fresh And Organic Products For You....</p>
     </section>
-
 
 <!--   slide images-->
     <section class="row">
@@ -273,12 +274,11 @@
     </div>
 </section>
     </section>
-
+    </section>
 
 
 
     <section id="customer">
-    <body>
     <main class="container-fluid">
 
 
@@ -436,12 +436,10 @@
 
 
     </main>
-    </body>
     </section>
 
 
     <section id="item">
-    <body>
     <main class="container-fluid">
 
 
@@ -600,12 +598,12 @@
 
 
     </main>
-    </body>
+
     </section>
 
 
     <section id="order">
-    <body>
+
     <main class="mt-5 container-fluid">
         <section class="row">
             <main class="container">
@@ -791,11 +789,48 @@
         </section>
 
     </main>
-    </body>
+
     </section>
 
 </main>
-<script src="assets/bootstrap/js/bootstrap.bundle.min.js">
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+
+
+<script>
+
+    $("#dashBoard").css("display", "block");
+    $("#customer").css("display", "none");
+    $("#item").css("display", "none");
+    $("#order").css("display", "none");
+
+    $("#linkCustomer").click(function () {
+        $("#dashBoard").css("display", "none");
+        $("#customer").css("display", "block");
+        $("#item").css("display", "none");
+        $("#order").css("display", "none");
+    });
+
+    $("#linkItem").click(function () {
+        $("#dashBoard").css("display", "none");
+        $("#customer").css("display", "none");
+        $("#item").css("display", "block");
+        $("#order").css("display", "none");
+    });
+
+    $("#linkOrder").click(function () {
+        $("#dashBoard").css("display", "none");
+        $("#customer").css("display", "none");
+        $("#item").css("display", "none");
+        $("#order").css("display", "block");
+    });
+
+    $("#linkHome").click(function () {
+        $("#dashBoard").css("display", "block");
+        $("#customer").css("display", "none");
+        $("#item").css("display", "none");
+        $("#order").css("display", "none");
+    });
 
 </script>
 </body>
