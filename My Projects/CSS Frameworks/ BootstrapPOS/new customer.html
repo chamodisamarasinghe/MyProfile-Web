@@ -244,7 +244,25 @@
      let row= `<tr><td>${customerId}</td><td>${customerName}</td><td>${customerAddress}</td><td>${customerSalary}</td> </tr>`;
 
         $("#customerTable").append(row);
+
+        $("#customerTable>tr").click(function () {
+            // console.log($(this));
+            let customerId = $(this).children(":eq(0)").text();
+            let customerName = $(this).children(":eq(1)").text();
+            let customerAddress = $(this).children(":eq(2)").text();
+            let customerSalary = $(this).children(":eq(3)").text();
+            console.log(customerId, customerName, customerAddress, customerSalary)
+
+
+            // set values for the input fields
+             $("#txtCusID").val(customerId);
+             $("#txtCusName").val(customerName);
+             $("#txtAddress").val(customerAddress);
+             $("#txtSalary").val(customerSalary);
+
+        });
     });
+
 
 </script>
 </body>
