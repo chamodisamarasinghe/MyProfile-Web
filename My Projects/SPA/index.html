@@ -573,7 +573,7 @@
                         <th>Item Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Total</th>
+<!--                        <th>Total</th>-->
 
                     </tr>
                     </thead>
@@ -900,6 +900,68 @@
             $("#txtCustomerName").val(customerName);
             $("#txtCustomerAddress").val(customerAddress);
             $("#txtCustomerContact").val(customerContact);
+
+        });
+    });
+
+
+    // item form
+    $("#txtItemCode").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtItemName").focus();
+        }
+    });
+
+    $("#txtItemName").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtPrice").focus();
+        }
+    });
+
+    $("#txtPrice").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtQty").focus();
+        }
+    });
+
+    $("#txtQty").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#tableItem").focus();
+        }
+    });
+
+    $("#btnItemSave").click(function () {
+        // remove all the row click events
+        $("#tableItem>tr").off("click");
+
+
+
+        let itemCode = $("#txtItemCode").val();
+        let itemName = $("#txtItemName").val();
+        let price = $("#txtPrice").val();
+        let qty = $("#txtQty").val();
+
+        console.log(itemCode, itemName, price, qty);
+        console.log(typeof itemCode, typeof itemName, typeof price, typeof qty)
+
+        let row= `<tr><td>${itemCode}</td><td>${itemName}</td><td>${price}</td><td>${qty}</td> </tr>`;
+
+        $("#tableItem").append(row);
+
+        $("#tableItem>tr").click(function () {
+            // console.log($(this));
+            let itemCode = $(this).children(":eq(0)").text();
+            let itemName = $(this).children(":eq(1)").text();
+            let price = $(this).children(":eq(2)").text();
+            let qty = $(this).children(":eq(3)").text();
+            console.log(itemCode, itemName, price, qty)
+
+
+            // set values for the input fields
+            $("#txtItemCode").val(itemCode);
+            $("#txtItemName").val(itemName);
+            $("#txtPrice").val(price);
+            $("#txtQty").val(qty);
 
         });
     });
