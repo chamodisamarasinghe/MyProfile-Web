@@ -277,7 +277,7 @@
     </section>
 
 
-
+<!--    customer start-->
     <section id="customer">
     <main class="container-fluid">
 
@@ -374,27 +374,27 @@
 
                     <form class="row g-3">
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Customer Id</label>
-                            <input type="email" class="form-control" id="inputEmail4">
+                            <label for="txtCustomerId" class="form-label">Customer Id</label>
+                            <input type="email" class="form-control" id="txtCustomerId">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">Customer Name</label>
-                            <input type="password" class="form-control" id="inputPassword4">
+                            <label for="txtCustomerName" class="form-label">Customer Name</label>
+                            <input type="text" class="form-control" id="txtCustomerName">
                         </div>
                         <div class="col-12">
-                            <label for="inputAddress" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            <label for="txtCustomerAddress" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="txtCustomerAddress" placeholder="1234 Main St">
                         </div>
                         <div class="col-12">
-                            <label for="inputAddress2" class="form-label">Salary</label>
-                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                            <label for="txtCustomerContact" class="form-label">Contact No</label>
+                            <input type="text" class="form-control" id="txtCustomerContact" placeholder="Apartment, studio, or floor">
                         </div>
                     </form>
 
 
-                    <button type="button" class="mt-5  btn btn-success">Save</button>
-                    <button type="button" class="mt-5  btn btn-warning">Update</button>
-                    <button type="button" class="mt-5  btn btn-danger">Delete</button>
+                    <button id="btnSave" type="button" class="mt-5  btn btn-success">Save</button>
+                    <button id="btnUpdate" type="button" class="mt-5  btn btn-warning">Update</button>
+                    <button id="btnDelete" type="button" class="mt-5  btn btn-danger">Delete</button>
 
                 </div>
             </section>
@@ -406,19 +406,19 @@
                     <tr>
                         <th>Customer Id</th>
                         <th>Customer Name</th>
-                        <th>Age</th>
-                        <th>Tp</th>
-                        <th>Salary</th>
+                        <th>Address</th>
+                        <th>Contact No</th>
+
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>C-001</td>
-                        <td>Chamodi</td>
-                        <td>23</td>
-                        <td>123</td>
-                        <td>40000.00</td>
-                    </tr>
+                    <tbody id="customerTable">
+<!--                    <tr>-->
+<!--                        <td>C-001</td>-->
+<!--                        <td>Chamodi</td>-->
+<!--                        <td>23</td>-->
+<!--                        <td>123</td>-->
+<!--                        <td>40000.00</td>-->
+<!--                    </tr>-->
                     <!--               <tr>-->
                     <!--                   <td>C-002</td>-->
                     <!--                   <td>Nirasha</td>-->
@@ -437,8 +437,12 @@
 
     </main>
     </section>
+<!--    customer end-->
 
 
+
+
+<!--    item start-->
     <section id="item">
     <main class="container-fluid">
 
@@ -535,27 +539,27 @@
 
                     <form class="row g-3">
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Item Code</label>
-                            <input type="email" class="form-control" id="Email4">
+                            <label for="txtItemCode" class="form-label">Item Code</label>
+                            <input type="email" class="form-control" id="txtItemCode">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">Item Name</label>
-                            <input type="password" class="form-control" id="Password4">
+                            <label for="txtItemName" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="txtItemName">
                         </div>
                         <div class="col-12">
-                            <label for="inputAddress" class="form-label">Item Price</label>
-                            <input type="text" class="form-control" id="Addres" placeholder="0.00">
+                            <label for="txtPrice" class="form-label">Item Price</label>
+                            <input type="text" class="form-control" id="txtPrice" placeholder="0.00">
                         </div>
                         <div class="col-12">
-                            <label for="inputAddress2" class="form-label">Item Quantity</label>
-                            <input type="text" class="form-control" id="Address2" placeholder="">
+                            <label for="txtQty" class="form-label">Item Quantity</label>
+                            <input type="text" class="form-control" id="txtQty" placeholder="">
                         </div>
                     </form>
 
 
-                    <button type="button" class="mt-5  btn btn-success">Save</button>
-                    <button type="button" class="mt-5  btn btn-warning">Update</button>
-                    <button type="button" class="mt-5  btn btn-danger">Delete</button>
+                    <button id="btnItemSave" type="button" class="mt-5  btn btn-success">Save</button>
+                    <button id="btnItemUpdate" type="button" class="mt-5  btn btn-warning">Update</button>
+                    <button id="btnItemDelete" type="button" class="mt-5  btn btn-danger">Delete</button>
 
                 </div>
             </section>
@@ -573,14 +577,14 @@
 
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>I-001</td>
-                        <td>Sugar</td>
-                        <td>500.00</td>
-                        <td>3</td>
-                        <td>1500.00</td>
-                    </tr>
+                    <tbody id="tableItem">
+<!--                    <tr>-->
+<!--                        <td>I-001</td>-->
+<!--                        <td>Sugar</td>-->
+<!--                        <td>500.00</td>-->
+<!--                        <td>3</td>-->
+<!--                        <td>1500.00</td>-->
+<!--                    </tr>-->
                     <!--                <tr>-->
                     <!--                    <td>I-002</td>-->
                     <!--                    <td>Rice</td>-->
@@ -600,8 +604,12 @@
     </main>
 
     </section>
+<!--    item end-->
 
 
+
+
+<!--    order start-->
     <section id="order">
 
     <main class="mt-5 container-fluid">
@@ -791,6 +799,8 @@
     </main>
 
     </section>
+<!--    order end-->
+
 
 </main>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -830,6 +840,68 @@
         $("#customer").css("display", "none");
         $("#item").css("display", "none");
         $("#order").css("display", "none");
+    });
+
+
+    // customer form
+    $("#txtCustomerId").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtCustomerName").focus();
+        }
+    });
+
+    $("#txtCustomerName").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtCustomerAddress").focus();
+        }
+    });
+
+    $("#txtCustomerAddress").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtCustomerContact").focus();
+        }
+    });
+
+    $("#txtCustomerContact").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#customerTable").focus();
+        }
+    });
+
+    $("#btnSave").click(function () {
+        // remove all the row click events
+        $("#customerTable>tr").off("click");
+
+
+
+        let customerId = $("#txtCustomerId").val();
+        let customerName = $("#txtCustomerName").val();
+        let customerAddress = $("#txtCustomerAddress").val();
+        let customerContact = $("#txtCustomerContact").val();
+
+        console.log(customerId, customerName, customerAddress, customerContact);
+        console.log(typeof customerId, typeof customerName, typeof customerAddress, typeof customerContact)
+
+        let row= `<tr><td>${customerId}</td><td>${customerName}</td><td>${customerAddress}</td><td>${customerContact}</td> </tr>`;
+
+        $("#customerTable").append(row);
+
+        $("#customerTable>tr").click(function () {
+            // console.log($(this));
+            let customerId = $(this).children(":eq(0)").text();
+            let customerName = $(this).children(":eq(1)").text();
+            let customerAddress = $(this).children(":eq(2)").text();
+            let customerContact = $(this).children(":eq(3)").text();
+            console.log(customerId, customerName, customerAddress, customerContact)
+
+
+            // set values for the input fields
+            $("#txtCustomerId").val(customerId);
+            $("#txtCustomerName").val(customerName);
+            $("#txtCustomerAddress").val(customerAddress);
+            $("#txtCustomerContact").val(customerContact);
+
+        });
     });
 
 </script>
