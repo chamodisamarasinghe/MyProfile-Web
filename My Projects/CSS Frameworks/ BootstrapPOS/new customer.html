@@ -175,25 +175,25 @@
 
                <form class="row g-3">
                    <div class="col-md-6">
-                       <label for="inputEmail4" class="form-label">Customer Id</label>
-                       <input type="email" class="form-control" id="inputEmail4">
+                       <label for="txtCusID" class="form-label">Customer Id</label>
+                       <input type="email" class="form-control" id="txtCusID">
                    </div>
                    <div class="col-md-6">
-                       <label for="inputPassword4" class="form-label">Customer Name</label>
-                       <input type="password" class="form-control" id="inputPassword4">
+                       <label for="txtCusName" class="form-label">Customer Name</label>
+                       <input type="text" class="form-control" id="txtCusName">
                    </div>
                    <div class="col-12">
-                       <label for="inputAddress" class="form-label">Address</label>
-                       <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                       <label for="txtAddress" class="form-label">Address</label>
+                       <input type="text" class="form-control" id="txtAddress" placeholder="1234 Main St">
                    </div>
                    <div class="col-12">
-                       <label for="inputAddress2" class="form-label">Salary</label>
-                       <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                       <label for="txtSalary" class="form-label">Salary</label>
+                       <input type="text" class="form-control" id="txtSalary" placeholder="Apartment, studio, or floor">
                    </div>
                </form>
 
 
-               <button type="button" class="mt-5  btn btn-success">Save</button>
+               <button id="btnSave" type="button" class="mt-5   btn btn-success">Save</button>
                <button type="button" class="mt-5  btn btn-warning">Update</button>
                <button type="button" class="mt-5  btn btn-danger">Delete</button>
 
@@ -207,19 +207,13 @@
                <tr>
                    <th>Customer Id</th>
                    <th>Customer Name</th>
-                   <th>Age</th>
-                   <th>Tp</th>
+                   <th>Address</th>
+<!--                   <th>Tp</th>-->
                    <th>Salary</th>
                </tr>
                </thead>
-               <tbody>
-               <tr>
-                   <td>C-001</td>
-                   <td>Chamodi</td>
-                   <td>23</td>
-                   <td>123</td>
-                   <td>40000.00</td>
-               </tr>
+               <tbody id="customerTable">
+
 <!--               <tr>-->
 <!--                   <td>C-002</td>-->
 <!--                   <td>Nirasha</td>-->
@@ -233,9 +227,25 @@
 
    </main>
 
-
-
-
 </main>
+
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+<script>
+
+    $("#btnSave").click(function () {
+       let customerId = $("#txtCusID").val();
+       let customerName = $("#txtCusName").val();
+       let customerAddress = $("#txtAddress").val();
+       let customerSalary = $("#txtSalary").val();
+
+       console.log(customerId, customerName, customerAddress, customerSalary);
+       console.log(typeof customerId, typeof customerName, typeof customerAddress, typeof customerSalary)
+
+     let row= `<tr><td>${customerId}</td><td>${customerName}</td><td>${customerAddress}</td><td>${customerSalary}</td> </tr>`;
+
+        $("#customerTable").append(row);
+    });
+
+</script>
 </body>
 </html>
