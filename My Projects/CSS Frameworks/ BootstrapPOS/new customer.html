@@ -232,7 +232,36 @@
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <script>
 
+    $("#txtCusID").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtCusName").focus();
+        }
+    });
+
+    $("#txtCusName").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtAddress").focus();
+        }
+    });
+
+    $("#txtAddress").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtSalary").focus();
+        }
+    });
+
+    $("#txtSalary").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#customerTable").focus();
+        }
+    });
+
     $("#btnSave").click(function () {
+        // remove all the row click events
+        $("#customerTable>tr").off("click");
+
+
+
        let customerId = $("#txtCusID").val();
        let customerName = $("#txtCusName").val();
        let customerAddress = $("#txtAddress").val();
