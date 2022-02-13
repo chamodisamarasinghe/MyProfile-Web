@@ -878,7 +878,7 @@
 
     $("#btnSave").click(function () {
         // remove all the row click events
-        $("#customerTable>tr").off("click");
+        $("#customerTable>tr").off();
 
 
 
@@ -910,6 +910,13 @@
             $("#txtCustomerContact").val(customerContact);
 
         });
+
+
+        $("#customerTable>tr").dblclick(function () {
+            $(this).remove();
+        });
+
+
     });
 
 
