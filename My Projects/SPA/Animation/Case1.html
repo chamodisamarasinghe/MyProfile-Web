@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case 1</title>
+</head>
+<body>
+<h1>Hello there..How are you?</h1>
+
+<div>
+
+</div>
+
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+
+<script>
+    $("h1").css("position", "relative");
+
+
+    // $("h1").css("position", "relative");
+    // $("h1").css("left", "100px");
+    // $("h1").css("top", "100px");
+
+    $(window).on("mousemove", function (e) {
+        // console.log(e.pageX,e.pageY);
+        $("h1").css("left", e.pageX);
+        $("h1").css("top", e.pageY);
+    });
+</script>
+</body>
+</html>
