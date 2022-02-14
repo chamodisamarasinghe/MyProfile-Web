@@ -150,6 +150,12 @@
         margin-bottom: -28px;
         list-style: none;
     }
+
+    .text-danger {
+        --bs-text-opacity: 1;
+        color: rgba(var(--bs-danger-rgb),var(--bs-text-opacity))!important;
+        font-size: 14px;
+    }
 </style>
 
 
@@ -383,7 +389,8 @@
                     <form class="row g-3">
                         <div class="col-md-6">
                             <label for="txtCustomerId" class="form-label">Customer Id</label>
-                            <input type="email" class="form-control" id="txtCustomerId">
+                            <input type="text" class="form-control" id="txtCustomerId">
+                            <p><small id="error" class="text-danger p-1"></small></p>
                         </div>
                         <div class="col-md-6">
                             <label for="txtCustomerName" class="form-label">Customer Name</label>
@@ -980,6 +987,23 @@
 
         });
     });
+
+
+    var regExCustomerId = /^(C00-)[0-9]{3,4}$/;
+
+    $("#txtCustomerId").keyup(function () {
+        let input = $("#txtCustomerId").val();
+        if(regExCustomerId.test(input)) {
+            $("#txtCustomerId").css('border', '2px solid green');
+            $("#error").text("");
+        }else{
+            $("#txtCustomerId").css('border', '2px solid red');
+            $("#error").text("Wrong format : C00-001")
+        }
+    });
+
+
+
 
 </script>
 </body>
