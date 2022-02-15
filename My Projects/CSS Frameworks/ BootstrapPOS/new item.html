@@ -176,25 +176,25 @@
 
                 <form class="row g-3">
                     <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">Item Code</label>
-                        <input type="email" class="form-control" id="inputEmail4">
+                        <label for="txtItemCode" class="form-label">Item Code</label>
+                        <input type="text" class="form-control" id="txtItemCode">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">Item Name</label>
-                        <input type="password" class="form-control" id="inputPassword4">
+                        <label for="txtItemName" class="form-label">Item Name</label>
+                        <input type="text" class="form-control" id="txtItemName">
                     </div>
                     <div class="col-12">
-                        <label for="inputAddress" class="form-label">Item Price</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="0.00">
+                        <label for="txtPrice" class="form-label">Item Price</label>
+                        <input type="text" class="form-control" id="txtPrice" placeholder="0.00">
                     </div>
                     <div class="col-12">
-                        <label for="inputAddress2" class="form-label">Item Quantity</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="">
+                        <label for="txtQty" class="form-label">Item Quantity</label>
+                        <input type="text" class="form-control" id="txtQty" placeholder="">
                     </div>
                 </form>
 
 
-                <button type="button" class="mt-5  btn btn-success">Save</button>
+                <button id="btnItemSave" type="button" class="mt-5  btn btn-success">Save</button>
                 <button type="button" class="mt-5  btn btn-warning">Update</button>
                 <button type="button" class="mt-5  btn btn-danger">Delete</button>
 
@@ -213,30 +213,82 @@
 
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>I-001</td>
-                    <td>Sugar</td>
-                    <td>500.00</td>
-                    <td>3</td>
-                    <td>1500.00</td>
-                </tr>
-<!--                <tr>-->
-<!--                    <td>I-002</td>-->
-<!--                    <td>Rice</td>-->
-<!--                    <td>600</td>-->
-<!--                    <td>5</td>-->
-<!--                    <td>3000.00</td>-->
-<!--                </tr>-->
+                <tbody id="tableItem">
+
+
                 </tbody>
             </table>
         </section>
 
     </main>
 
-
-
-
 </main>
+
+
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+
+<script>
+    $("#txtItemCode").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtItemName").focus();
+        }
+    });
+
+    $("#txtItemName").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtPrice").focus();
+        }
+    });
+
+    $("#txtPrice").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#txtQty").focus();
+        }
+    });
+
+    $("#txtQty").keydown(function (event) {
+        if(event.key == "Enter"){
+            $("#tableItem").focus();
+        }
+    });
+
+    $("#btnItemSave").click(function () {
+        // remove all the row click events
+        $("#tableItem>tr").off("click");
+
+
+
+        let itemCode = $("#txtItemCode").val();
+        let itemName = $("#txtItemName").val();
+        let price = $("#txtPrice").val();
+        let qty = $("#txtQty").val();
+
+        console.log(itemCode, itemName, price, qty);
+        console.log(typeof itemCode, typeof itemName, typeof price, typeof qty)
+
+        let row= `<tr><td>${itemCode}</td><td>${itemName}</td><td>${price}</td><td>${qty}</td> </tr>`;
+
+        $("#tableItem").append(row);
+
+        $("#tableItem>tr").click(function () {
+            // console.log($(this));
+            let itemCode = $(this).children(":eq(0)").text();
+            let itemName = $(this).children(":eq(1)").text();
+            let price = $(this).children(":eq(2)").text();
+            let qty = $(this).children(":eq(3)").text();
+            console.log(itemCode, itemName, price, qty)
+
+
+            // set values for the input fields
+            $("#txtItemCode").val(itemCode);
+            $("#txtItemName").val(itemName);
+            $("#txtPrice").val(price);
+            $("#txtQty").val(qty);
+
+        });
+    });
+
+
+</script>
 </body>
 </html>
