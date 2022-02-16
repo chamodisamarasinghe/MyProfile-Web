@@ -304,24 +304,7 @@
                 Customer
             </div>
 
-<!--            <nav class="mt-30 navbar navbar-expand-lg navbar-light bg-light">-->
-<!--                <div class="container-fluid">-->
 
-<!--                    <div class="mt-10  collapse navbar-collapse" id="navbarNav">-->
-<!--                        <ul class="navbar-nav">-->
-<!--                            <li class="nav-item">-->
-<!--                                <a class="nav-link active" aria-current="page" href="#">Home</a>-->
-<!--                            </li>-->
-<!--                            <li class="nav-item">-->
-<!--                                <a class="nav-link" href="#">Customer</a>-->
-<!--                            </li>-->
-
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </nav>-->
-
-            <!--       <button type="button" class="btn btn-warning mt-5">Warning</button>-->
             <button type="button" class="btn btn-info mt-5">View All Customers</button>
 
             <section class="row">
@@ -339,10 +322,11 @@
 
 
                         <form>
-                            <fieldset disabled>
+                            <fieldset >
 
                                 <div class="mb-3">
-                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Input Name/NIC/Tp here">
+                                    <label for="txtSearchCustomer" class="form-label">Customer Id</label>
+                                    <input type="text" id="txtSearchCustomer" class="form-control" placeholder="Input Customer Id here">
                                 </div>
                                 <div class="mb-3">
                                     <select id="disabledSelect" class="form-select">
@@ -351,15 +335,12 @@
                                 </div>
 
                             </fieldset>
-                            <button type="button" class="btn btn-success">Search</button>
                         </form>
                     </section>
 
                     <section class="row mt-5">
                         <div class="btn-group mt-10" role="group" aria-label="Basic mixed styles example">
-                            <button type="button" class="btn btn-danger">Delete</button>
-                            <button type="button" class="btn btn-warning">Details</button>
-                            <button type="button" class="btn btn-success">Clear</button>
+                            <button id="btnSearchCustomer" type="button" class="btn btn-success">Search</button>
                         </div>
                     </section>
                 </div>
@@ -370,11 +351,6 @@
 
                 <!--            2nd column-->
                 <div class="col border border-5">
-
-                    <!--               <section class="row">-->
-                    <!--                   <button type="button" class="btn btn-warning">Warning</button>-->
-                    <!--                   <button type="button" class="btn btn-info">Info</button>-->
-                    <!--               </section>-->
 
 
                     <div class="col">
@@ -430,20 +406,6 @@
                     </tr>
                     </thead>
                     <tbody id="customerTable">
-<!--                    <tr>-->
-<!--                        <td>C-001</td>-->
-<!--                        <td>Chamodi</td>-->
-<!--                        <td>23</td>-->
-<!--                        <td>123</td>-->
-<!--                        <td>40000.00</td>-->
-<!--                    </tr>-->
-                    <!--               <tr>-->
-                    <!--                   <td>C-002</td>-->
-                    <!--                   <td>Nirasha</td>-->
-                    <!--                   <td>21</td>-->
-                    <!--                   <td>123</td>-->
-                    <!--                   <td>30000.00</td>-->
-                    <!--               </tr>-->
                     </tbody>
                 </table>
             </section>
@@ -508,10 +470,13 @@
 
 
                         <form>
-                            <fieldset disabled>
+                            <fieldset >
 
                                 <div class="mb-3">
-                                    <input type="text" id="TextInput" class="form-control" placeholder="Input Name/Code here">
+                                    <label for="txtSearchItemCode" class="form-label">Item Code</label>
+                                    <input type="text" id="txtSearchItemCode" class="form-control" placeholder="Input Code here">
+<!--                                    <label for="txtItemCode" class="form-label">Item Code</label>-->
+<!--                                    <input type="text" class="form-control" id="txtItemCode">-->
                                 </div>
                                 <div class="mb-3">
                                     <select id="Select" class="form-select">
@@ -520,15 +485,13 @@
                                 </div>
 
                             </fieldset>
-                            <button type="button" class="btn btn-success">Search</button>
                         </form>
                     </section>
 
                     <section class="row mt-5">
                         <div class="btn-group mt-10" role="group" aria-label="Basic mixed styles example">
-                            <button type="button" class="btn btn-danger">Delete</button>
-                            <button type="button" class="btn btn-warning">Details</button>
-                            <button type="button" class="btn btn-success">Clear</button>
+
+                            <button id="btnItemSearch" type="button" class="btn btn-success">Search</button>
                         </div>
                     </section>
                 </div>
@@ -539,13 +502,6 @@
 
                 <!--            2nd column-->
                 <div class="col border border-5">
-
-                    <!--               <section class="row">-->
-                    <!--                   <button type="button" class="btn btn-warning">Warning</button>-->
-                    <!--                   <button type="button" class="btn btn-info">Info</button>-->
-                    <!--               </section>-->
-
-
                     <div class="col">
                         <div class="card bg-success fw-bold">
                             <div class="card-body">
@@ -815,7 +771,7 @@
 </main>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
-
+<script src="db/DB.js"></script>
 
 <script>
 
@@ -1081,79 +1037,135 @@
 
 
     // item form
-    $("#txtItemCode").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#txtItemName").focus();
-        }
-    });
-
-    $("#txtItemName").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#txtPrice").focus();
-        }
-    });
-
-    $("#txtPrice").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#txtQty").focus();
-        }
-    });
-
-    $("#txtQty").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#tableItem").focus();
-        }
-    });
-
     $("#btnItemSave").click(function () {
-        // remove all the row click events
-        $("#tableItem>tr").off("click");
+        saveItem();
+        clearAll();
+        loadAllItems();
+    });
+
+    $("#btnItemSearch").click(function () {
+        var searchId = $("#txtSearchItemCode").val();
+
+        var response = searchItem(searchId);
+        if (response) {
+            $("#txtItemCode").val(response.itemCode);
+            $("#txtItemName").val(response.itemName);
+            $("#txtPrice").val(response.price);
+            $("#txtQty").val(response.qty);
+        }else{
+            clearAll();
+            alert("No Such a Item");
+
+        }
+    });
+
+    function loadAllItems(){
+        $("#tableItem").empty();
+        for(var i of itemDB){
+            let row= `<tr><td>${i.itemCode}</td><td>${i.itemCode}</td><td>${i.price}</td><td>${i.qty}</td> </tr>`;
+
+            $("#tableItem").append(row);
+        }
+    }
 
 
-
+    function saveItem(){
         let itemCode = $("#txtItemCode").val();
         let itemName = $("#txtItemName").val();
         let price = $("#txtPrice").val();
         let qty = $("#txtQty").val();
 
-        console.log(itemCode, itemName, price, qty);
-        console.log(typeof itemCode, typeof itemName, typeof price, typeof qty)
 
-        let row= `<tr><td>${itemCode}</td><td>${itemName}</td><td>${price}</td><td>${qty}</td> </tr>`;
+        var itemObject = {
+            itemCode: itemCode,
+            itemName: itemName,
+            price: price,
+            qty: qty
+        };
+        itemDB.push(itemObject);
+    }
 
-        $("#tableItem").append(row);
-
-        $("#tableItem>tr").click(function () {
-            // console.log($(this));
-            let itemCode = $(this).children(":eq(0)").text();
-            let itemName = $(this).children(":eq(1)").text();
-            let price = $(this).children(":eq(2)").text();
-            let qty = $(this).children(":eq(3)").text();
-            console.log(itemCode, itemName, price, qty)
-
-
-            // set values for the input fields
-            $("#txtItemCode").val(itemCode);
-            $("#txtItemName").val(itemName);
-            $("#txtPrice").val(price);
-            $("#txtQty").val(qty);
-
-        });
-    });
-
-
-    var regExCustomerId = /^(C00-)[0-9]{3,4}$/;
-
-    $("#txtCustomerId").keyup(function () {
-        let input = $("#txtCustomerId").val();
-        if(regExCustomerId.test(input)) {
-            $("#txtCustomerId").css('border', '2px solid green');
-            $("#error").text("");
-        }else{
-            $("#txtCustomerId").css('border', '2px solid red');
-            $("#error").text("Wrong format : C00-001")
+    function searchItem(itemCode){
+        for (let i = 0; i < itemDB.length; i++) {
+            if (itemDB[i].itemCode == itemCode) {
+                return itemDB[i];
+            }
         }
-    });
+    }
+
+    // $("#txtItemCode").keydown(function (event) {
+    //     if(event.key == "Enter"){
+    //         $("#txtItemName").focus();
+    //     }
+    // });
+    //
+    // $("#txtItemName").keydown(function (event) {
+    //     if(event.key == "Enter"){
+    //         $("#txtPrice").focus();
+    //     }
+    // });
+    //
+    // $("#txtPrice").keydown(function (event) {
+    //     if(event.key == "Enter"){
+    //         $("#txtQty").focus();
+    //     }
+    // });
+    //
+    // $("#txtQty").keydown(function (event) {
+    //     if(event.key == "Enter"){
+    //         $("#tableItem").focus();
+    //     }
+    // });
+    //
+    // $("#btnItemSave").click(function () {
+    //     // remove all the row click events
+    //     $("#tableItem>tr").off("click");
+    //
+    //
+    //
+    //     let itemCode = $("#txtItemCode").val();
+    //     let itemName = $("#txtItemName").val();
+    //     let price = $("#txtPrice").val();
+    //     let qty = $("#txtQty").val();
+    //
+    //     console.log(itemCode, itemName, price, qty);
+    //     console.log(typeof itemCode, typeof itemName, typeof price, typeof qty)
+    //
+    //     let row= `<tr><td>${itemCode}</td><td>${itemName}</td><td>${price}</td><td>${qty}</td> </tr>`;
+    //
+    //     $("#tableItem").append(row);
+    //
+    //     $("#tableItem>tr").click(function () {
+    //         // console.log($(this));
+    //         let itemCode = $(this).children(":eq(0)").text();
+    //         let itemName = $(this).children(":eq(1)").text();
+    //         let price = $(this).children(":eq(2)").text();
+    //         let qty = $(this).children(":eq(3)").text();
+    //         console.log(itemCode, itemName, price, qty)
+    //
+    //
+    //         // set values for the input fields
+    //         $("#txtItemCode").val(itemCode);
+    //         $("#txtItemName").val(itemName);
+    //         $("#txtPrice").val(price);
+    //         $("#txtQty").val(qty);
+    //
+    //     });
+    // });
+
+
+    // var regExCustomerId = /^(C00-)[0-9]{3,4}$/;
+    //
+    // $("#txtCustomerId").keyup(function () {
+    //     let input = $("#txtCustomerId").val();
+    //     if(regExCustomerId.test(input)) {
+    //         $("#txtCustomerId").css('border', '2px solid green');
+    //         $("#error").text("");
+    //     }else{
+    //         $("#txtCustomerId").css('border', '2px solid red');
+    //         $("#error").text("Wrong format : C00-001")
+    //     }
+    // });
 
 
 // item form validation
