@@ -127,27 +127,21 @@
 
 
                     <form>
-                        <fieldset disabled>
+                        <div class="col-12">
+                            <label for="txtPrice" class="form-label">Item Code</label>
+                            <input type="text" class="form-control" id="txtSearchItemCode" placeholder="">
 
-                            <div class="mb-3">
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="Input Name/Code here">
-                            </div>
-                            <div class="mb-3">
-                                <select id="disabledSelect" class="form-select">
-                                    <option>Name</option>
-                                </select>
-                            </div>
+                        </div>
+
 
                         </fieldset>
-                        <button type="button" class="btn btn-success">Search</button>
+<!--                        <button type="button" class="btn btn-success">Search</button>-->
                     </form>
                 </section>
 
                 <section class="row mt-5">
                     <div class="btn-group mt-10" role="group" aria-label="Basic mixed styles example">
-                        <button type="button" class="btn btn-danger">Delete</button>
-                        <button type="button" class="btn btn-warning">Details</button>
-                        <button type="button" class="btn btn-success">Clear</button>
+                        <button id="btnItemSearch" type="button" class="btn btn-success">Search</button>
                     </div>
                 </section>
             </div>
@@ -158,13 +152,6 @@
 
             <!--            2nd column-->
             <div class="col border border-5">
-
-                <!--               <section class="row">-->
-                <!--                   <button type="button" class="btn btn-warning">Warning</button>-->
-                <!--                   <button type="button" class="btn btn-info">Info</button>-->
-                <!--               </section>-->
-
-
                 <div class="col">
                     <div class="card bg-success fw-bold">
                         <div class="card-body">
@@ -234,67 +221,125 @@
 
 
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+<script src="db/DB.js"></script>
 
 <script>
-    $("#txtItemCode").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#txtItemName").focus();
-        }
-    });
-
-    $("#txtItemName").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#txtPrice").focus();
-        }
-    });
-
-    $("#txtPrice").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#txtQty").focus();
-        }
-    });
-
-    $("#txtQty").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#tableItem").focus();
-        }
-    });
-
     $("#btnItemSave").click(function () {
-        // remove all the row click events
-        $("#tableItem>tr").off("click");
+        saveItem();
+        clearAll();
+        loadAllItems();
+    });
+
+    $("#btnItemSearch").click(function () {
+        var searchId = $("#txtSearchItemCode").val();
+
+        var response = searchItem(searchId);
+        if (response) {
+            $("#txtItemCode").val(response.itemCode);
+            $("#txtItemName").val(response.itemName);
+            $("#txtPrice").val(response.price);
+            $("#txtQty").val(response.qty);
+        }else{
+            clearAll();
+            alert("No Such a Item");
+
+        }
+    });
+
+    function loadAllItems(){
+        $("#tableItem").empty();
+        for(var i of itemDB){
+            let row= `<tr><td>${i.itemCode}</td><td>${i.itemCode}</td><td>${i.price}</td><td>${i.qty}</td> </tr>`;
+
+            $("#tableItem").append(row);
+        }
+    }
 
 
-
+    function saveItem(){
         let itemCode = $("#txtItemCode").val();
         let itemName = $("#txtItemName").val();
         let price = $("#txtPrice").val();
         let qty = $("#txtQty").val();
 
-        console.log(itemCode, itemName, price, qty);
-        console.log(typeof itemCode, typeof itemName, typeof price, typeof qty)
 
-        let row= `<tr><td>${itemCode}</td><td>${itemName}</td><td>${price}</td><td>${qty}</td> </tr>`;
+        var itemObject = {
+            itemCode: itemCode,
+            itemName: itemName,
+            price: price,
+            qty: qty
+        };
+        itemDB.push(itemObject);
+    }
 
-        $("#tableItem").append(row);
-
-        $("#tableItem>tr").click(function () {
-            // console.log($(this));
-            let itemCode = $(this).children(":eq(0)").text();
-            let itemName = $(this).children(":eq(1)").text();
-            let price = $(this).children(":eq(2)").text();
-            let qty = $(this).children(":eq(3)").text();
-            console.log(itemCode, itemName, price, qty)
+    function searchItem(itemCode){
+        for (let i = 0; i < itemDB.length; i++) {
+            if (itemDB[i].itemCode == itemCode) {
+                return itemDB[i];
+            }
+        }
+    }
 
 
-            // set values for the input fields
-            $("#txtItemCode").val(itemCode);
-            $("#txtItemName").val(itemName);
-            $("#txtPrice").val(price);
-            $("#txtQty").val(qty);
 
-        });
-    });
+    // $("#txtItemCode").keydown(function (event) {
+    //     if(event.key == "Enter"){
+    //         $("#txtItemName").focus();
+    //     }
+    // });
+    //
+    // $("#txtItemName").keydown(function (event) {
+    //     if(event.key == "Enter"){
+    //         $("#txtPrice").focus();
+    //     }
+    // });
+    //
+    // $("#txtPrice").keydown(function (event) {
+    //     if(event.key == "Enter"){
+    //         $("#txtQty").focus();
+    //     }
+    // });
+    //
+    // $("#txtQty").keydown(function (event) {
+    //     if(event.key == "Enter"){
+    //         $("#tableItem").focus();
+    //     }
+    // });
+    //
+    // $("#btnItemSave").click(function () {
+    //     $("#tableItem>tr").off("click");
+    //
+    //
+    //
+    //     let itemCode = $("#txtItemCode").val();
+    //     let itemName = $("#txtItemName").val();
+    //     let price = $("#txtPrice").val();
+    //     let qty = $("#txtQty").val();
+    //
+    //     console.log(itemCode, itemName, price, qty);
+    //     console.log(typeof itemCode, typeof itemName, typeof price, typeof qty)
+    //
+    //     let row= `<tr><td>${itemCode}</td><td>${itemName}</td><td>${price}</td><td>${qty}</td> </tr>`;
+    //
+    //     $("#tableItem").append(row);
+    //
+    //     $("#tableItem>tr").click(function () {
+    //         // console.log($(this));
+    //         let itemCode = $(this).children(":eq(0)").text();
+    //         let itemName = $(this).children(":eq(1)").text();
+    //         let price = $(this).children(":eq(2)").text();
+    //         let qty = $(this).children(":eq(3)").text();
+    //         console.log(itemCode, itemName, price, qty)
+    //
+    //
+    //
+    //         $("#txtItemCode").val(itemCode);
+    //         $("#txtItemName").val(itemName);
+    //         $("#txtPrice").val(price);
+    //         $("#txtQty").val(qty);
+    //
+    //     });
+    // });
 
 
     // validation start
