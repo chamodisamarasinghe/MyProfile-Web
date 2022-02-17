@@ -325,14 +325,10 @@
                             <fieldset >
 
                                 <div class="mb-3">
-                                    <label for="txtSearchCustomer" class="form-label">Customer Id</label>
-                                    <input type="text" id="txtSearchCustomer" class="form-control" placeholder="Input Customer Id here">
+                                    <label for="txtSearchCusId" class="form-label">Customer Id</label>
+                                    <input type="text" id="txtSearchCusId" class="form-control" placeholder="Input Customer Id here">
                                 </div>
-                                <div class="mb-3">
-                                    <select id="disabledSelect" class="form-select">
-                                        <option>Name</option>
-                                    </select>
-                                </div>
+
 
                             </fieldset>
                         </form>
@@ -340,7 +336,7 @@
 
                     <section class="row mt-5">
                         <div class="btn-group mt-10" role="group" aria-label="Basic mixed styles example">
-                            <button id="btnSearchCustomer" type="button" class="btn btn-success">Search</button>
+                            <button id="btnSearch" type="button" class="btn btn-success">Search</button>
                         </div>
                     </section>
                 </div>
@@ -364,18 +360,18 @@
 
                     <form class="row g-3">
                         <div class="col-md-6">
-                            <label for="txtCustomerId" class="form-label">Customer Id</label>
-                            <input type="text" class="form-control" id="txtCustomerId">
+                            <label for="txtCusID" class="form-label">Customer Id</label>
+                            <input type="text" class="form-control" id="txtCusID">
                             <p><small class="text-danger pl-1" id="lblcusid"></small></p>
                         </div>
                         <div class="col-md-6">
-                            <label for="txtCustomerName" class="form-label">Customer Name</label>
-                            <input type="text" class="form-control" id="txtCustomerName">
+                            <label for="txtCusName" class="form-label">Customer Name</label>
+                            <input type="text" class="form-control" id="txtCusName">
                             <p><small class="text-danger pl-1" id="lblcusname"></small></p>
                         </div>
                         <div class="col-12">
-                            <label for="txtCustomerAddress" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="txtCustomerAddress" placeholder="1234 Main St">
+                            <label for="txtAddress" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="txtAddress" placeholder="1234 Main St">
                             <p><small class="text-danger pl-1" id="lblcusaddress"></small></p>
                         </div>
                         <div class="col-12">
@@ -452,7 +448,7 @@
                 </div>
             </nav>
 
-            <!--       <button type="button" class="btn btn-warning mt-5">Warning</button>-->
+
             <button type="button" class="btn btn-info mt-2">View All Items</button>
 
             <section class="row">
@@ -475,8 +471,6 @@
                                 <div class="mb-3">
                                     <label for="txtSearchItemCode" class="form-label">Item Code</label>
                                     <input type="text" id="txtSearchItemCode" class="form-control" placeholder="Input Code here">
-<!--                                    <label for="txtItemCode" class="form-label">Item Code</label>-->
-<!--                                    <input type="text" class="form-control" id="txtItemCode">-->
                                 </div>
                                 <div class="mb-3">
                                     <select id="Select" class="form-select">
@@ -810,118 +804,106 @@
 
 
     // customer form
-    $("#txtCustomerId").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#txtCustomerName").focus();
-        }
-    });
-
-    $("#txtCustomerName").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#txtCustomerAddress").focus();
-        }
-    });
-
-    $("#txtCustomerAddress").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#txtSalary").focus();
-        }
-    });
-
-    $("#txtSalary").keydown(function (event) {
-        if(event.key == "Enter"){
-            $("#customerTable").focus();
-        }
-    });
-
     $("#btnSave").click(function () {
-        // remove all the row click events
-        $("#customerTable>tr").off();
-
-
-
-        let customerId = $("#txtCustomerId").val();
-        let customerName = $("#txtCustomerName").val();
-        let customerAddress = $("#txtCustomerAddress").val();
-        let salary = $("#txtSalary").val();
-
-        console.log(customerId, customerName, customerAddress, salary);
-        console.log(typeof customerId, typeof customerName, typeof customerAddress, typeof salary)
-
-        let row= `<tr><td>${customerId}</td><td>${customerName}</td><td>${customerAddress}</td><td>${salary}</td> </tr>`;
-
-        $("#customerTable").append(row);
-
-        $("#customerTable>tr").click(function () {
-            // console.log($(this));
-            let customerId = $(this).children(":eq(0)").text();
-            let customerName = $(this).children(":eq(1)").text();
-            let customerAddress = $(this).children(":eq(2)").text();
-            let salary = $(this).children(":eq(3)").text();
-            console.log(customerId, customerName, customerAddress, salary)
-
-
-            // set values for the input fields
-            $("#txtCustomerId").val(customerId);
-            $("#txtCustomerName").val(customerName);
-            $("#txtCustomerAddress").val(customerAddress);
-            $("#txtSalary").val(salary);
-
-        });
-
-
-        $("#customerTable>tr").dblclick(function () {
-            $(this).remove();
-        });
-
-
+        saveCustomer();
+        clearAll();
+        loadAllCustomers();
     });
 
+    $("#btnSearch").click(function () {
+        var searchId = $("#txtSearchCusId").val();
 
-// customer form validation start
+        var response = searchCustomer(searchId);
+        if (response) {
+            $("#txtCusID").val(response.customerId);
+            $("#txtCusName").val(response.customerName);
+            $("#txtAddress").val(response.customerAddress);
+            $("#txtSalary").val(response.customerSalary);
+        }else{
+            clearAll();
+            alert("No Such a Customer");
+
+        }
+    });
+
+    function loadAllCustomers(){
+        $("#customerTable").empty();
+        for(var i of customerDB){
+            let row= `<tr><td>${i.customerId}</td><td>${i.customerName}</td><td>${i.customerAddress}</td><td>${i.customerSalary}</td> </tr>`;
+
+            $("#customerTable").append(row);
+        }
+    }
+
+
+    function saveCustomer(){
+        let customerId = $("#txtCusID").val();
+        let customerName = $("#txtCusName").val();
+        let customerAddress = $("#txtAddress").val();
+        let customerSalary = $("#txtSalary").val();
+
+
+        var customerObject = {
+            customerId: customerId,
+            customerName: customerName,
+            customerAddress: customerAddress,
+            customerSalary: customerSalary
+        };
+        customerDB.push(customerObject);
+    }
+
+    function searchCustomer(customerId){
+        for (let i = 0; i < customerDB.length; i++) {
+            if (customerDB[i].customerId == customerId) {
+                return customerDB[i];
+            }
+        }
+    }
+
+
     const cusIDRegEx = /^(C00-)[0-9]{1,3}$/;
     const cusNameRegEx = /^[A-z ]{5,20}$/;
     const cusAddressRegEx = /^[0-9/A-z. ,]{7,}$/;
     const cusSalaryRegEx = /^[0-9]{1,}[.]?[0-9]{1,2}$/;
 
 
-    $('#txtCustomerId,#txtCustomerName,#txtCustomerAddress,#txtSalary').on('keydown', function (eventOb) {
+    $('#txtCusID,#txtCusName,#txtAddress,#txtSalary').on('keydown', function (eventOb) {
         if (eventOb.key == "Tab") {
-            eventOb.preventDefault(); // stop execution of the button
+            eventOb.preventDefault();
         }
     });
 
-    $('#txtCustomerId,#txtCustomerName,#txtCustomerAddress,#txtSalary').on('blur', function () {
+    $('#txtCusID,#txtCusName,#txtAddress,#txtSalary').on('blur', function () {
         formValid();
     });
 
-    //focusing events
-    $("#txtCustomerId").on('keyup', function (eventOb) {
+
+    $("#txtCusID").on('keyup', function (eventOb) {
         setButton();
         if (eventOb.key == "Enter") {
             checkIfValid();
         }
 
         if (eventOb.key == "Control") {
-            var typedCustomerID = $("#txtCustomerId").val();
+            var typedCustomerID = $("#txtCusID").val();
             var srcCustomer = searchCustomerFromID(typedCustomerID);
-            $("#txtCustomerId").val(srcCustomer.getCustomerID());
-            $("#txtCustomerName").val(srcCustomer.getCustomerName());
-            $("#txtCustomerAddress").val(srcCustomer.getCustomerAddress());
+            $("#txtCusID").val(srcCustomer.getCustomerID());
+            $("#txtCusName").val(srcCustomer.getCustomerName());
+            $("#txtAddress").val(srcCustomer.getCustomerAddress());
             $("#txtSalary").val(srcCustomer.getCustomerSalary());
         }
 
 
     });
 
-    $("#txtCustomerName").on('keyup', function (eventOb) {
+    $("#txtCusName").on('keyup', function (eventOb) {
         setButton();
         if (eventOb.key == "Enter") {
             checkIfValid();
         }
     });
 
-    $("#txtCustomerAddress").on('keyup', function (eventOb) {
+    $("#txtAddress").on('keyup', function (eventOb) {
         setButton();
         if (eventOb.key == "Enter") {
             checkIfValid();
@@ -934,32 +916,32 @@
             checkIfValid();
         }
     });
-    // focusing events end
+
     $("#btnSave").attr('disabled', true);
 
     function clearAll() {
-        $('#txtCustomerId,#txtCustomerName,#txtCustomerAddress,#txtSalary').val("");
-        $('#txtCustomerId,#txtCustomerName,#txtCustomerAddress,#txtSalary').css('border', '2px solid #ced4da');
-        $('#txtCustomerId').focus();
+        $('#txtCusID,#txtCusName,#txtAddress,#txtSalary').val("");
+        $('#txtCusID,#txtCusName,#txtAddress,#txtSalary').css('border', '2px solid #ced4da');
+        $('#txtCusID').focus();
         $("#btnSave").attr('disabled', true);
         loadAllCustomers();
         $("#lblcusid,#lblcusname,#lblcusaddress,#lblcussalary").text("");
     }
 
     function formValid() {
-        var cusID = $("#txtCustomerId").val();
-        $("#txtCustomerId").css('border', '2px solid green');
+        var cusID = $("#txtCusID").val();
+        $("#txtCusID").css('border', '2px solid green');
         $("#lblcusid").text("");
         if (cusIDRegEx.test(cusID)) {
-            var cusName = $("#txtCustomerName").val();
+            var cusName = $("#txtCusName").val();
             if (cusNameRegEx.test(cusName)) {
-                $("#txtCustomerName").css('border', '2px solid green');
+                $("#txtCusName").css('border', '2px solid green');
                 $("#lblcusname").text("");
-                var cusAddress = $("#txtCustomerAddress").val();
+                var cusAddress = $("#txtAddress").val();
                 if (cusAddressRegEx.test(cusAddress)) {
                     var cusSalary = $("#txtSalary").val();
                     var resp = cusSalaryRegEx.test(cusSalary);
-                    $("#txtCustomerAddress").css('border', '2px solid green');
+                    $("#txtAddress").css('border', '2px solid green');
                     $("#lblcusaddress").text("");
                     if (resp) {
                         $("#txtSalary").css('border', '2px solid green');
@@ -971,30 +953,30 @@
                         return false;
                     }
                 } else {
-                    $("#txtCustomerAddress").css('border', '2px solid red');
+                    $("#txtAddress").css('border', '2px solid red');
                     $("#lblcusaddress").text("Cus Name is a required field : Mimum 7");
                     return false;
                 }
             } else {
-                $("#txtCustomerName").css('border', '2px solid red');
+                $("#txtCusName").css('border', '2px solid red');
                 $("#lblcusname").text("Cus Name is a required field : Mimimum 5, Max 20, Spaces Allowed");
                 return false;
             }
         } else {
-            $("#txtCustomerId").css('border', '2px solid red');
+            $("#txtCusID").css('border', '2px solid red');
             $("#lblcusid").text("Cus ID is a required field : Pattern C00-000");
             return false;
         }
     }
 
     function checkIfValid() {
-        var cusID = $("#txtCustomerId").val();
+        var cusID = $("#txtCusID").val();
         if (cusIDRegEx.test(cusID)) {
-            $("#txtCustomerName").focus();
-            var cusName = $("#txtCustomerName").val();
+            $("#txtCusName").focus();
+            var cusName = $("#txtCusName").val();
             if (cusNameRegEx.test(cusName)) {
-                $("#txtCustomerAddress").focus();
-                var cusAddress = $("#txtCustomerAddress").val();
+                $("#txtAddress").focus();
+                var cusAddress = $("#txtAddress").val();
                 if (cusAddressRegEx.test(cusAddress)) {
                     $("#txtSalary").focus();
                     var cusSalary = $("#txtSalary").val();
@@ -1009,13 +991,13 @@
                         $("#txtSalary").focus();
                     }
                 } else {
-                    $("#txtCustomerAddress").focus();
+                    $("#txtAddress").focus();
                 }
             } else {
-                $("#txtCustomerName").focus();
+                $("#txtCusName").focus();
             }
         } else {
-            $("#txtCustomerId").focus();
+            $("#txtCusID").focus();
         }
     }
 
@@ -1093,79 +1075,6 @@
         }
     }
 
-    // $("#txtItemCode").keydown(function (event) {
-    //     if(event.key == "Enter"){
-    //         $("#txtItemName").focus();
-    //     }
-    // });
-    //
-    // $("#txtItemName").keydown(function (event) {
-    //     if(event.key == "Enter"){
-    //         $("#txtPrice").focus();
-    //     }
-    // });
-    //
-    // $("#txtPrice").keydown(function (event) {
-    //     if(event.key == "Enter"){
-    //         $("#txtQty").focus();
-    //     }
-    // });
-    //
-    // $("#txtQty").keydown(function (event) {
-    //     if(event.key == "Enter"){
-    //         $("#tableItem").focus();
-    //     }
-    // });
-    //
-    // $("#btnItemSave").click(function () {
-    //     // remove all the row click events
-    //     $("#tableItem>tr").off("click");
-    //
-    //
-    //
-    //     let itemCode = $("#txtItemCode").val();
-    //     let itemName = $("#txtItemName").val();
-    //     let price = $("#txtPrice").val();
-    //     let qty = $("#txtQty").val();
-    //
-    //     console.log(itemCode, itemName, price, qty);
-    //     console.log(typeof itemCode, typeof itemName, typeof price, typeof qty)
-    //
-    //     let row= `<tr><td>${itemCode}</td><td>${itemName}</td><td>${price}</td><td>${qty}</td> </tr>`;
-    //
-    //     $("#tableItem").append(row);
-    //
-    //     $("#tableItem>tr").click(function () {
-    //         // console.log($(this));
-    //         let itemCode = $(this).children(":eq(0)").text();
-    //         let itemName = $(this).children(":eq(1)").text();
-    //         let price = $(this).children(":eq(2)").text();
-    //         let qty = $(this).children(":eq(3)").text();
-    //         console.log(itemCode, itemName, price, qty)
-    //
-    //
-    //         // set values for the input fields
-    //         $("#txtItemCode").val(itemCode);
-    //         $("#txtItemName").val(itemName);
-    //         $("#txtPrice").val(price);
-    //         $("#txtQty").val(qty);
-    //
-    //     });
-    // });
-
-
-    // var regExCustomerId = /^(C00-)[0-9]{3,4}$/;
-    //
-    // $("#txtCustomerId").keyup(function () {
-    //     let input = $("#txtCustomerId").val();
-    //     if(regExCustomerId.test(input)) {
-    //         $("#txtCustomerId").css('border', '2px solid green');
-    //         $("#error").text("");
-    //     }else{
-    //         $("#txtCustomerId").css('border', '2px solid red');
-    //         $("#error").text("Wrong format : C00-001")
-    //     }
-    // });
 
 
 // item form validation
