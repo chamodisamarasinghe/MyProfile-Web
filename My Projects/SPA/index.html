@@ -328,8 +328,6 @@
                                     <label for="txtSearchCusId" class="form-label">Customer Id</label>
                                     <input type="text" id="txtSearchCusId" class="form-control" placeholder="Input Customer Id here">
                                 </div>
-
-
                             </fieldset>
                         </form>
                     </section>
@@ -767,6 +765,7 @@
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <script src="db/DB.js"></script>
 
+
 <script>
 
     $("#dashBoard").css("display", "block");
@@ -804,9 +803,10 @@
 
 
     // customer form
+
     $("#btnSave").click(function () {
         saveCustomer();
-        clearAll();
+        clearAllCustomers();
         loadAllCustomers();
     });
 
@@ -820,7 +820,7 @@
             $("#txtAddress").val(response.customerAddress);
             $("#txtSalary").val(response.customerSalary);
         }else{
-            clearAll();
+            clearAllCustomers();
             alert("No Such a Customer");
 
         }
@@ -874,7 +874,7 @@
     });
 
     $('#txtCusID,#txtCusName,#txtAddress,#txtSalary').on('blur', function () {
-        formValid();
+        formValidCustomer();
     });
 
 
@@ -897,21 +897,21 @@
     });
 
     $("#txtCusName").on('keyup', function (eventOb) {
-        setButton();
+        setCusButton();
         if (eventOb.key == "Enter") {
             checkIfValid();
         }
     });
 
     $("#txtAddress").on('keyup', function (eventOb) {
-        setButton();
+        setCusButton();
         if (eventOb.key == "Enter") {
             checkIfValid();
         }
     });
 
     $("#txtSalary").on('keyup', function (eventOb) {
-        setButton();
+        setCusButton();
         if (eventOb.key == "Enter") {
             checkIfValid();
         }
@@ -919,7 +919,7 @@
 
     $("#btnSave").attr('disabled', true);
 
-    function clearAll() {
+    function clearAllCustomers() {
         $('#txtCusID,#txtCusName,#txtAddress,#txtSalary').val("");
         $('#txtCusID,#txtCusName,#txtAddress,#txtSalary').css('border', '2px solid #ced4da');
         $('#txtCusID').focus();
@@ -928,7 +928,7 @@
         $("#lblcusid,#lblcusname,#lblcusaddress,#lblcussalary").text("");
     }
 
-    function formValid() {
+    function formValidCustomer() {
         var cusID = $("#txtCusID").val();
         $("#txtCusID").css('border', '2px solid green');
         $("#lblcusid").text("");
@@ -1001,8 +1001,8 @@
         }
     }
 
-    function setButton() {
-        let b = formValid();
+    function setCusButton() {
+        let b = formValidCustomer();
         if (b) {
             $("#btnSave").attr('disabled', false);
         } else {
@@ -1013,6 +1013,245 @@
     $('#btnSave').click(function () {
         checkIfValid();
     });
+
+
+
+
+
+
+
+    // 2
+
+    // $("#btnSave").click(function () {
+    //     saveCustomer();
+    //     clearAllCustomers();
+    //     loadAllCustomers();
+    // });
+    //
+    //
+    // $("#btnSearch").click(function () {
+    //     var searchID = $("#txtSearchCusId").val();
+    //
+    //     var response = searchCustomer(searchID);
+    //     if (response) {
+    //         $("#txtCusID").val(response.customerID);
+    //         $("#txtCusName").val(response.customerName);
+    //         $("#txtAddress").val(response.address);
+    //         $("#txtSalary").val(response.salary);
+    //     } else {
+    //         clearAll();
+    //         alert("No Such a Customer");
+    //     }
+    // });
+    //
+    // function loadAllCustomers() {
+    //     $("#customerTable").empty();
+    //     for (var j of customerDB) {
+    //         let row = `<tr><td>${j.customerID}</td><td>${j.customerName}</td><td>${j.address}</td><td>${j.salary}</td></tr>`;
+    //         $("#customerTable").append(row);
+    //     }
+    // }
+    //
+    // function saveCustomer() {
+    //     let customerID = $("#txtCusID").val();
+    //     let customerName = $("#txtCusName").val();
+    //     let address = $("#txtAddress").val();
+    //     let salary = $("#txtSalary").val();
+    //
+    //     var customerObject = {
+    //         customerID: customerID,
+    //         customerName: customerName,
+    //         address: address,
+    //         salary: salary
+    //     };
+    //
+    //     customerDB.push(customerObject);
+    // }
+    //
+    // function searchCustomer(customerId) {
+    //     for (let j = 0; j < customerDB.length; j++) {
+    //         if (customerDB[j].customerId == customerId) {
+    //             return customerDB[j];
+    //         }
+    //     }
+    // }
+    //
+    // // $(document).ready(function () {
+    // //     $('#btnDelete').click(function () {
+    // //         if (confirm("Want to clear?")) {
+    // //             $('#form1 input[type="text"]').val('');
+    // //             $('#form1 #customerId').val('');
+    // //             $('#form1 #customerName').val('');
+    // //             $('#form1 #customerAddress').val('');
+    // //             $('#form1 #customerSalary').val('');
+    // //         }
+    // //
+    // //     });
+    // // });
+    //
+    // function deleteCustomer() {
+    // }
+    //
+    // function updateCustomer() {
+    //
+    // }
+    //
+    // const cusIDRegEx = /^(C00-)[0-9]{1,3}$/;
+    // const cusNameRegEx = /^[A-z ]{5,20}$/;
+    // const cusAddressRegEx = /^[0-9/A-z. ,]{7,}$/;
+    // const cusSalaryRegEx = /^[0-9]{1,}[.]?[0-9]{1,2}$/;
+    //
+    //
+    // $('#txtCusID,#txtCusName,#txtAddress,#txtSalary').on('keydown', function (eventOb) {
+    //     if (eventOb.key == "Tab") {
+    //         eventOb.preventDefault();
+    //     }
+    //     formValidCus();
+    //     console.log("W")
+    // });
+    //
+    // $('#txtCusID,#txtCusName,#txtAddress,#txtSalary').on('blur', function () {
+    //     formValidCus();
+    // });
+    //
+    // $("#txtCusID").on('keyup', function (eventOb) {
+    //     setButtonSave();
+    //
+    //     if (eventOb.key == "Enter") {
+    //         checkIfValid();
+    //     }
+    //
+    //     if (eventOb.key == "Control") {
+    //         var typedCustomerID = $("#txtCusID").val();
+    //         var srcCustomer = searchCustomerFromID(typedCustomerID);
+    //         $("#txtCusID").val(srcCustomer.getCustomerID());
+    //         $("#txtCusName").val(srcCustomer.getCustomerName());
+    //         $("#txtAddress").val(srcCustomer.getCustomerAddress());
+    //         $("#txtSalary").val(srcCustomer.getCustomerSalary());
+    //     }
+    //
+    //
+    // });
+    //
+    // $("#txtCusName").on('keyup', function (eventOb) {
+    //     setButtonSave();
+    //     if (eventOb.key == "Enter") {
+    //         checkIfValid();
+    //     }
+    // });
+    //
+    // $("#txtAddress").on('keyup', function (eventOb) {
+    //     setButtonSave();
+    //     if (eventOb.key == "Enter") {
+    //         checkIfValid();
+    //     }
+    // });
+    //
+    // $("#txtSalary").on('keyup', function (eventOb) {
+    //     setButtonSave();
+    //     if (eventOb.key == "Enter") {
+    //         checkIfValid();
+    //         // alert("W");
+    //     }
+    // });
+    //
+    // $("#btnSave").attr('disabled', true);
+    //
+    // function clearAllCustomers() {
+    //     $('#txtCusID,#txtCusName,#txtAddress,#txtSalary').val("");
+    //     $('#txtCusID,#txtCusName,#txtAddress,#txtSalary').css('border', '2px solid #ced4da');
+    //     $('#txtCusID').focus();
+    //     $("#btnSave").attr('disabled', true);
+    //     loadAllCustomers();
+    //     $("#lblcusid,#lblcusname,#lblcusaddress,#lblcussalary").text("");
+    // }
+    //
+    // function formValidCus() {
+    //     var cusID = $("#txtCusID").val();
+    //     $("#txtCusID").css('border', '2px solid green');
+    //     $("#lblcusid").text("");
+    //     if (cusIDRegEx.test(cusID)) {
+    //         var cusName = $("#txtCusName").val();
+    //         if (cusNameRegEx.test(cusName)) {
+    //             $("#txtCusName").css('border', '2px solid green');
+    //             $("#lblcusname").text("");
+    //             var cusAddress = $("#txtAddress").val();
+    //             if (cusAddressRegEx.test(cusAddress)) {
+    //                 var cusSalary = $("#txtSalary").val();
+    //                 var resp = cusSalaryRegEx.test(cusSalary);
+    //                 $("#txtAddress").css('border', '2px solid green');
+    //                 $("#lblcusaddress").text("");
+    //                 if (resp) {
+    //                     $("#txtSalary").css('border', '2px solid green');
+    //                     $("#lblcussalary").text("");
+    //                     return true;
+    //                 } else {
+    //                     $("#txtSalary").css('border', '2px solid red');
+    //                     $("#lblcussalary").text("Cus Salary is a required field : Pattern 100.00 or 100");
+    //                     return false;
+    //                 }
+    //             } else {
+    //                 $("#txtAddress").css('border', '2px solid red');
+    //                 $("#lblcusaddress").text("Cus Address is a required field : Mimum 3");
+    //                 return false;
+    //             }
+    //         } else {
+    //             $("#txtCusName").css('border', '2px solid red');
+    //             $("#lblcusname").text("Cus Name is a required field : Mimimum 5, Max 20, Spaces Allowed");
+    //             return false;
+    //         }
+    //     } else {
+    //         $("#txtCusID").css('border', '2px solid red');
+    //         $("#lblcusid").text("Cus ID is a required field : Pattern C00-000");
+    //         return false;
+    //     }
+    // }
+    //
+    // function checkIfValid() {
+    //     var cusID = $("#txtCusID").val();
+    //     if (cusIDRegEx.test(cusID)) {
+    //         $("#txtCusName").focus();
+    //         var cusName = $("#txtCusName").val();
+    //         if (cusNameRegEx.test(cusName)) {
+    //             $("#txtAddress").focus();
+    //             var cusAddress = $("#txtAddress").val();
+    //             if (cusAddressRegEx.test(cusAddress)) {
+    //                 $("#txtSalary").focus();
+    //                 var cusSalary = $("#txtSalary").val();
+    //                 var resp = cusSalaryRegEx.test(cusSalary);
+    //                 if (resp) {
+    //                     let res = confirm("Do you really need to add this Customer..?");
+    //                     if (res) {
+    //                         saveCustomer();
+    //                         clearAllCustomers();
+    //                     }
+    //                 } else {
+    //                     $("#txtSalary").focus();
+    //                 }
+    //             } else {
+    //                 $("#txtAddress").focus();
+    //             }
+    //         } else {
+    //             $("#txtCusName").focus();
+    //         }
+    //     } else {
+    //         $("#txtCusID").focus();
+    //     }
+    // }
+    //
+    // function setButtonSave() {
+    //     let b = formValidCus();
+    //     if (b) {
+    //         $("#btnSave").attr('disabled', false);
+    //     } else {
+    //         $("#btnSave").attr('disabled', true);
+    //     }
+    // }
+    //
+    // $('#btnSave').click(function () {
+    //     checkIfValid();
+    // });
+
 
 // customer form validation end
 
@@ -1044,7 +1283,7 @@
     function loadAllItems(){
         $("#tableItem").empty();
         for(var i of itemDB){
-            let row= `<tr><td>${i.itemCode}</td><td>${i.itemCode}</td><td>${i.price}</td><td>${i.qty}</td> </tr>`;
+            let row= `<tr><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.price}</td><td>${i.qty}</td> </tr>`;
 
             $("#tableItem").append(row);
         }
@@ -1086,19 +1325,19 @@
 
     $('#txtItemCode,#txtItemName,#txtPrice,#txtQty').on('keydown', function (eventOb) {
         if (eventOb.key == "Tab") {
-            eventOb.preventDefault(); // stop execution of the button
+            eventOb.preventDefault();
         }
     });
 
     $('#txtItemCode,#txtItemName,#txtPrice,#txtQty').on('blur', function () {
-        formValid();
+        itemFormValid();
     });
 
     //focusing events
     $("#txtItemCode").on('keyup', function (eventOb) {
         setButton();
         if (eventOb.key == "Enter") {
-            checkIfValid();
+            ifValid();
         }
 
         if (eventOb.key == "Control") {
@@ -1116,21 +1355,21 @@
     $("#txtItemName").on('keyup', function (eventOb) {
         setButton();
         if (eventOb.key == "Enter") {
-            checkIfValid();
+            ifValid();
         }
     });
 
     $("#txtPrice").on('keyup', function (eventOb) {
         setButton();
         if (eventOb.key == "Enter") {
-            checkIfValid();
+            ifValid();
         }
     });
 
     $("#txtQty").on('keyup', function (eventOb) {
         setButton();
         if (eventOb.key == "Enter") {
-            checkIfValid();
+            ifValid();
         }
     });
     // focusing events end
@@ -1145,7 +1384,7 @@
         $("#lblitemid,#lblitemname,#lblprice,#lblqty").text("");
     }
 
-    function formValid() {
+    function itemFormValid() {
         var itemCode = $("#txtItemCode").val();
         $("#txtItemCode").css('border', '2px solid green');
         $("#lblitemid").text("");
@@ -1186,7 +1425,7 @@
         }
     }
 
-    function checkIfValid() {
+    function ifValid() {
         var itemCode = $("#txtItemCode").val();
         if (itemIDRegEx.test(itemCode)) {
             $("#txtItemName").focus();
@@ -1199,7 +1438,7 @@
                     var qty = $("#txtQty").val();
                     var resp = qtyRegEx.test(qty);
                     if (resp) {
-                        let res = confirm("Do you really need to add this Customer..?");
+                        let res = confirm("Do you really need to add this Item..?");
                         if (res) {
                             saveItem();
                             clearAll();
@@ -1219,7 +1458,7 @@
     }
 
     function setButton() {
-        let b = formValid();
+        let b = itemFormValid();
         if (b) {
             $("#btnItemSave").attr('disabled', false);
         } else {
@@ -1228,7 +1467,7 @@
     }
 
     $('#btnItemSave').click(function () {
-        checkIfValid();
+        ifValid();
     });
 
 // Item validation end
