@@ -20,6 +20,7 @@ $("#btnSearch").click(function () {
     }
 });
 
+
 function loadAllCustomers(){
     $("#customerTable").empty();
     for(var i of customerDB){
@@ -53,6 +54,21 @@ function searchCustomer(customerId){
         }
     }
 }
+
+
+
+
+// Update()
+
+
+
+
+
+// Delete
+
+
+
+
 
 
 const cusIDRegEx = /^(C00-)[0-9]{1,3}$/;

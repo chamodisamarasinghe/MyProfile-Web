@@ -11,6 +11,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="assests/css/fonts/css/all.css" rel="stylesheet">
     <style>
+        header > nav > ul {
+            position: absolute;
+            right: 0px;
+            left: 78px;
+            bottom: 29px;
+            font-size: 20px;
+            margin: auto;
+            margin-left: 125px;
+            padding-left: 0;
+            width: max-content;
+        }
+
+
+        header>nav>ul>li{
+            padding: 0 10px 0 10px;
+            display: inline-block;
+        }
+
+
+        header>nav>ul {
+            position: absolute;
+            right: 30px;
+            bottom: 18px;
+            font-size: 33px;
+            font-family: 'Lobster', cursive;
+            list-style: none;
+            color: white;
+        }
+
+        header{
+            position: relative;
+            height: 80px;
+            box-shadow: -2px 6px 45px -4px darkslateblue;
+        }
+
         header{
             color: #4e52e9;
             font-size: 30px;
@@ -60,7 +95,8 @@
         /*}*/
 
         body{
-            background-color: #1d1e57;
+            /*background-color: #1d1e57;*/
+            background-color: black;
         }
 
         section>ul{
@@ -71,6 +107,7 @@
             position: absolute;
             right: 0px;
             top: 0px;
+            margin-top: 85px;
         }
 
         body>div{
@@ -233,7 +270,11 @@
         /*        visibility: visible;*/
         /*    }*/
 
-
+        div>h1{
+            color: white;
+            margin-top: -64px;
+            font-size: 50px;
+        }
 
     </style>
 </head>
@@ -241,8 +282,25 @@
 <body>
     <div></div>
 <header>
-    <h1>About Me</h1>
+    <nav>
+        <ul>
+
+            <li><a href="../home/index.html">Home</a></li>
+            <li><a href="aboutme.html">About</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="assignmens.html">Projects</a></li>
+            <li><a href="projects.html">Assignments</a></li>
+            <li><a href="contactme.html">Contact</a></li>
+        </ul>
+    </nav>
 </header>
+
+<div>
+    <h1>About Me</h1>
+</div>
+
+
 
 
     <section>
@@ -257,7 +315,7 @@
     </section>
 
     <section>
-        <img src="../assests/images/self.png" alt="" width="370" align="right">
+        <img src="../assests/images/self.png" alt="" width="310" align="right">
     </section>
 
       <section>
