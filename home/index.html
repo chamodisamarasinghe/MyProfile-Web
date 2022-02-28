@@ -14,12 +14,173 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lobster&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-
-        header{
-            position: relative;
-            height: 80px;
-            box-shadow: -2px 6px 45px -4px darkslateblue;
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
+
+        body{
+            background-color: #3d4152;
+        }
+
+        .navigation{
+            position: fixed;
+            inset: 20px 0 20px 20px;
+            width: 105px;
+            /*background: white;*/
+            transition: 0.5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #4f5050;
+        }
+
+        .navigation.open{
+            width: 250px;
+        }
+
+        .navigation .menuToggle{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 60px;
+            /*border-bottom: 1px solid rgba(0,0,0,0.5);*/
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 23px;
+        }
+
+        .navigation .menuToggle::before
+        {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: #333;
+            transform: translateY(-8px);
+            transition: 0.5s;
+        }
+
+        .navigation.open .menuToggle::before{
+            transform: translateY(0px) rotate(45deg);
+        }
+
+        .navigation .menuToggle::after
+        {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: #333;
+            transform: translateY(8px);
+            transition: 0.5s;
+            box-shadow: 0 -8px 0 #333;
+        }
+
+        .navigation.open .menuToggle::after{
+            transform: translateY(0px) rotate(-45deg);
+            box-shadow: 0 0 0 #333;
+        }
+
+        .navigation ul{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .navigation ul li{
+            list-style: none;
+            position: relative;
+            width: 100%;
+            height: 60px;
+            padding: 0 10px;
+            transition: 0.5s;
+        }
+
+        .navigation ul li.active{
+            transform: translateX(30px);
+        }
+
+        .navigation.open ul li.active{
+            transform: translateX(10px);
+        }
+
+        .navigation ul li a{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .navigation ul li a .icon{
+            position: relative;
+            display: block;
+            min-width: 55px;
+            height: 55px;
+            line-height: 60px;
+            transition: 0.5s;
+            border-radius: 10px;
+            font-size: 1.75em;
+            color: #222;
+
+        }
+
+        .navigation ul li.active a .icon{
+            color: white;
+            background: var(--clr);
+        }
+
+        .navigation ul li a .icon::before{
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--clr);
+            filter: blur(8px);
+            opacity: 0;
+            transition: 0.5s;
+
+        }
+
+        .navigation ul li.active a .icon::before{
+            opacity: 0.5;
+        }
+
+        .navigation ul li a .text{
+            position: relative;
+            padding: 0 15px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            color: #333;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+        }
+
+        .navigation.open ul li a .text{
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navigation ul li.active a .text{
+            color: var(--clr);
+        }
+        /*header{*/
+        /*    position: relative;*/
+        /*    height: 80px;*/
+        /*    box-shadow: -2px 6px 45px -4px darkslateblue;*/
+        /*}*/
 
         body{
             background-color: black;
@@ -33,6 +194,7 @@
             animation-delay: 1s;
             visibility: hidden;
             animation-fill-mode: forwards;
+            margin-left: 50px;
         }
 
         @keyframes moveright {
@@ -57,6 +219,7 @@
             animation-delay: 0.1s;
             visibility: hidden;
             animation-fill-mode: forwards;
+            margin-left: 50px;
         }
 
         @keyframes moveright {
@@ -70,24 +233,6 @@
             }
         }
 
-
-        /*@keyframes changeColors {*/
-        /*    0%,20% {*/
-        /*        color: yellow;*/
-        /*    }*/
-        /*    25% {*/
-        /*        color: dodgerblue;*/
-        /*    }*/
-        /*    50% {*/
-        /*        color: darkslateblue;*/
-        /*    }*/
-        /*    75% {*/
-        /*        color: blue;*/
-        /*    }*/
-        /*    100% {*/
-        /*        color: darkblue;*/
-        /*    }*/
-        /*}*/
 
 
         h3{
@@ -114,32 +259,34 @@
         }
 
 
-        header>nav>ul{
-            position: absolute;
-            right: 30px;
-            bottom: 10px;
-            font-size: 33px;
-            font-family: 'Lobster', cursive;
-            list-style: none;
-            color: white;
-        }
+        /*header>nav>ul{*/
+        /*    position: absolute;*/
+        /*    right: 30px;*/
+        /*    bottom: 10px;*/
+        /*    font-size: 33px;*/
+        /*    font-family: 'Lobster', cursive;*/
+        /*    list-style: none;*/
+        /*    color: white;*/
+        /*}*/
 
-        header>nav>ul {
-            position: absolute;
-            right: 30px;
-            /*left: 78px;*/
-            bottom: 22px;
-            font-size: 32px;
-            margin: auto;
-            margin-left: -68px;
-            padding-left: 0;
-            width: max-content;
-        }
+        /*header>nav>ul {*/
+        /*    position: absolute;*/
+        /*    right: 30px;*/
+        /*    !*left: 78px;*!*/
+        /*    bottom: 22px;*/
+        /*    font-size: 32px;*/
+        /*    margin: auto;*/
+        /*    margin-left: -68px;*/
+        /*    padding-left: 0;*/
+        /*    width: max-content;*/
+        /*}*/
 
-        header>nav>ul>li{
-            padding: 0 10px 0 10px;
-            display: inline-block;
-        }
+        /*header>nav>ul>li{*/
+        /*    padding: 0 10px 0 10px;*/
+        /*    display: inline-block;*/
+        /*}*/
+
+
 
 
         header>nav>ul>li:hover{
@@ -147,9 +294,11 @@
             color: yellow;
         }
 
-       main> section>img{
+       main>div>section> section>img{
+           position: center;
             cursor: pointer;
             color: white;
+
         }
 
 
@@ -185,276 +334,118 @@
             position: absolute;
             left: 600px;
             right: 0;
-            bottom: 250px;
+            bottom: 200px;
         }
 
-        @media all and (max-width: 320px) {
-            header {
-                position: relative;
-                height: 121px;
-                width: 1036px;
-                box-shadow: -2px 6px 45px -4px #917a7a;
-            }
-
-                header>nav>ul {
-                    position: absolute;
-                    right: 0px;
-                    left: 78px;
-                    bottom: 40px;
-                    font-size: 33px;
-                    margin: auto;
-                    margin-left: -87px;
-                    padding-left: 0;
-                    width: max-content;
-                }
-                h1 {
-                    font-size: 32px;
-                    color: yellow;
-                    margin: auto;
-                    margin-left: -87px;
-                    margin-top: 31px;
-                    bottom: 103px;
-                }
-                h2 {
-                    font-size: 24px;
-                    color: white;
-                    margin: auto;
-                    margin-left: -60px;
-                    margin-top: 23px;
-                }
-                h3 {
-                    font-size: 44px;
-                    color: red;
-                    bottom: 93px;
-                    margin: auto;
-                    margin-top: -13px;
-                    margin-left: -52px;
-                }
-                main> section>img {
-                    bottom: -41px;
-                    width: 41px;
-                    top: 158px;
-                }
-                section>div>img {
-                    position: absolute;
-                    right: -232px;
-                    top: 327px;
-                    width: 207px;
-                }
-                }
-            @media all and (min-width: 320px)and (max-width: 425px) {
-                header {
-                    position: relative;
-                    height: 92px;
-                    width: 1036px;
-                    box-shadow: -2px 6px 45px 1px #917a7a;
-                }
-                header>nav>ul {
-                    position: absolute;
-                    right: 0px;
-                    left: 78px;
-                    bottom: 40px;
-                    font-size: 33px;
-                    margin: auto;
-                    margin-left: -87px;
-                    padding-left: 0;
-                    width: max-content;
-                }
-                h1 {
-                    font-size: 32px;
-                    color: yellow;
-                    margin: auto;
-                    margin-left: -87px;
-                    margin-top: 31px;
-                    bottom: 103px;
-                }
-                h2 {
-                    font-size: 24px;
-                    color: white;
-                    margin: auto;
-                    margin-left: -60px;
-                    margin-top: 23px;
-                }
-                h3 {
-                    font-size: 44px;
-                    color: red;
-                    bottom: 93px;
-                    margin: auto;
-                    margin-top: -13px;
-                    margin-left: -52px;
-                }
-                main> section>img {
-                    bottom: -41px;
-                    width: 41px;
-                    top: 158px;
-
-
-                }
-                section>div>img {
-                    position: absolute;
-                    right: -398px;
-                    top: 327px;
-                    width: 388px;
-                }
-            }
-
-            @media all and (min-width: 425px) and (max-width: 768px){
-                header {
-                    position: relative;
-                    height: 78px;
-                    width: 1036px;
-                    box-shadow: -2px 6px 45px 1px #917a7a;
-                }
 
 
 
-                header>nav>ul {
-                    position: absolute;
-                    right: 0px;
-                    left: 78px;
-                    bottom: 27px;
-                    font-size: 32px;
-                    margin: auto;
-                    margin-left: -68px;
-                    padding-left: 0;
-                    width: max-content;
-                }
-                h1 {
-                    font-size: 30px;
-                    color: yellow;
-                    margin: auto;
-                    margin-left: -57px;
-                    margin-top: 50px;
-                    bottom: 103px;
-                }
-                h2 {
-                    font-size: 24px;
-                    color: white;
-                    margin: auto;
-                    margin-left: -49px;
-                    margin-top: 23px;
-                }
-                h3 {
-                    font-size: 51px;
-                    color: red;
-                    bottom: 93px;
-                    margin: auto;
-                    margin-top: -23px;
-                    margin-left: -106px;
-                }
-                main> section>img {
-                    bottom: -73px;
-                    width: 35px;
-                    top: 143px;
-                }
-                section>div>img {
-                    position: absolute;
-                    right: -385px;
-                    top: 315px;
-                    width: 481px;
-                    margin: auto;
-                }
-        }
-
-        @media all and (min-width: 768px) and (max-width: 1024px) {
-            header {
-                position: relative;
-                height: 92px;
-                width: 1036px;
-                box-shadow: -2px 6px 45px 1px #917a7a;
-            }
 
 
-            header > nav > ul {
-                position: absolute;
-                right: 0px;
-                left: 78px;
-                bottom: 29px;
-                font-size: 20px;
-                margin: auto;
-                margin-left: 125px;
-                padding-left: 0;
-                width: max-content;
-            }
+                /*header>nav>ul {*/
+                /*    position: absolute;*/
+                /*    right: 0px;*/
+                /*    left: 78px;*/
+                /*    bottom: 27px;*/
+                /*    font-size: 32px;*/
+                /*    margin: auto;*/
+                /*    margin-left: -68px;*/
+                /*    padding-left: 0;*/
+                /*    width: max-content;*/
+                /*}*/
 
-            h1 {
-                font-size: 34px;
-                color: yellow;
-                margin: auto;
-                margin-left: -110px;
-                margin-top: 31px;
-                bottom: 103px;
-            }
 
-            h2 {
-                font-size: 24px;
-                color: white;
-                margin: auto;
-                margin-left: -54px;
-                margin-top: 23px;
-            }
 
-            h3 {
-                font-size: 56px;
-                color: red;
-                bottom: 93px;
-                margin: auto;
-                margin-top: -6px;
-                margin-left: -136px;
-            }
 
-            main > section > img {;
-                bottom: -76px;
-                width: 48px;
-                top: 25px;
 
-            }
 
-            section > div > img {
-                position: absolute;
-                right: 275px;
-                top: 307px;
-                width: 339px;
-                margin: auto;
 
-            }
 
-            @media all and (min-width: 1024px) and (max-width: 1440px) {
 
-            }
 
-            section > section > img > {
-                width: 200px;
-            }
 
-            main > section > section > img {
-                position: absolute;
-                margin: auto;
-                margin-left: 400px;
-                margin-top: -500px;
-            }
-
-            body > img {
-                position: absolute;
-                margin-top: 250px;
-                margin-left: 350px;
-            }
+        header {
+            margin-left: 218px;
+            margin-top: 40px;
         }
 </style>
 </head>
 <body>
+<div class="navigation">
+    <div class="menuToggle"></div>
+    <ul>
+        <li class="list active" style="--clr:#f44336;">
+            <a href="../home/index.html">
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                <span class="text">Home</span>
+            </a>
+        </li>
+        <li class="list" style="--clr:orange">
+            <a href="../sub/aboutme.html">
+                    <span class="icon">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </span>
+                <span class="text">About</span>
+            </a>
+        </li>
+        <li class="list" style="--clr:purple;">
+            <a href="../sub/education.html">
+                    <span class="icon">
+                       <ion-icon name="book-outline"></ion-icon>
+                    </span>
+                <span class="text">Education</span>
+            </a>
+        <li class="list" style="--clr:green;">
+            <a href="../sub/skills.html">
+                    <span class="icon">
+                       <ion-icon name="desktop-outline"></ion-icon>
+                    </span>
+                <span class="text">Skills</span>
+            </a>
+        </li>
+        <li class="list" style="--clr:blue">
+            <a href="../sub/projects.html">
+                    <span class="icon">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                    </span>
+                <span class="text">Projects</span>
+            </a>
+        </li>
+        <li class="list" style="--clr:pink">
+            <a href="../sub/assignmens.html">
+                    <span class="icon">
+                        <ion-icon name="document-outline"></ion-icon>
+                    </span>
+                <span class="text">Assignments</span>
+            </a>
+        </li>
+        <li class="list" style="--clr: #800000">
+            <a href="../sub/contactme.html">
+                    <span class="icon">
+                        <ion-icon name="call-outline"></ion-icon>
+                    </span>
+                <span class="text">Contact</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
 <header>
-    <nav>
-       <ul>
-           <li><a href="../home/index.html">Home</a></li>
-           <li><a href="../sub/aboutme.html">About</a></li>
-           <li><a href="../sub/education.html">Education</a></li>
-           <li><a href="../sub/skills.html">Skills</a></li>
-           <li><a href="../sub/assignmens.html">Projects</a></li>
-           <li><a href="../sub/projects.html">Assignments</a></li>
-           <li><a href="../sub/contactme.html">Contact</a></li>
-       </ul>
-    </nav>
+
+<!--    <nav>-->
+<!--       <ul>-->
+<!--           <li><a href="../home/index.html">Home</a></li>-->
+<!--           <li><a href="../sub/aboutme.html">About</a></li>-->
+<!--           <li><a href="../sub/education.html">Education</a></li>-->
+<!--           <li><a href="../sub/skills.html">Skills</a></li>-->
+<!--           <li><a href="../sub/assignmens.html">Projects</a></li>-->
+<!--           <li><a href="../sub/projects.html">Assignments</a></li>-->
+<!--           <li><a href="../sub/contactme.html">Contact</a></li>-->
+<!--       </ul>-->
+<!--    </nav>-->
 </header>
 <!--<img src="assests/images/hobb.png" alt="" width="300">-->
 <main>
@@ -470,24 +461,18 @@
         </div>
         </section>
 
-
-           <section>
-<!--               <img src="assests/images/hobb.png" alt="" width="300">-->
-               <section>
-<!--                <img src="assests/images/facebook%20(1).png" alt="" width="50"><br>-->
-               <a href="https://www.linkedin.com/in/chamodi-samarasinghe-a58188217"><img src="../assests/images/linkedin%20(1).png" alt="" width="50"></a>
-               <a href="https://whatsapp.com/dl/"><img src="../assests/images/whatsapp.png" alt="" width="50"></a>
-               <a href="https://github.com/chamodisamarasinghe"><img src="../assests/images/github%20(1).png" alt="" width="50"></a>
-               </section>
-             </section>
-
-
+<header>
+    <a href="https://www.linkedin.com/in/chamodi-samarasinghe-a58188217"><img src="../assests/images/linkedin%20(1).png" alt="" width="50"></a>
+    <a href="https://whatsapp.com/dl/"><img src="../assests/images/whatsapp.png" alt="" width="50"></a>
+    <img src="../assests/images/facebook%20(1).png" width="50">
+    <a href="https://g0ithub.com/chamodisamarasinghe"><img src="../assests/images/github%20(1).png" alt="" width="50"> </a>
+    </header>
 
 
 <section>
     <div>
-<!--        <img src="assests/images/about.jpg" alt="" width="180" align="right">-->
-        <img src="../assests/images/san.png" alt="" width="445">
+
+        <img src="../assests/images/san.png" alt="" width="540">
     </div>
 
 </section>
@@ -496,6 +481,25 @@
 </main>
 
 
+<script>
+    const menuToggle = document.querySelector('.menuToggle');
+    const navigation = document.querySelector('.navigation');
+    menuToggle.onclick = function () {
+        navigation.classList.toggle('open')
+    }
 
+    const list = document.querySelectorAll('.list');
+    function activeLink(){
+        list.forEach((item) =>
+            item.classList.remove('active'));
+        this.classList.add('active');
+    }
+
+    list.forEach((item) =>
+        item.addEventListener('click',activeLink))
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
