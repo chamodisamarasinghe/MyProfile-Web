@@ -287,8 +287,6 @@
         /*}*/
 
 
-
-
         header>nav>ul>li:hover{
             cursor: pointer;
             color: yellow;
@@ -338,10 +336,6 @@
         }
 
 
-
-
-
-
                 /*header>nav>ul {*/
                 /*    position: absolute;*/
                 /*    right: 0px;*/
@@ -354,20 +348,60 @@
                 /*    width: max-content;*/
                 /*}*/
 
-
-
-
-
-
-
-
-
-
-
         header {
             margin-left: 218px;
             margin-top: 40px;
         }
+
+
+        @media all and(max-width: 320px) {
+            h1 {
+                font-size: 31px;
+                color: yellow;
+                animation: moveright 1s linear;
+                animation-delay: 0.1s;
+                visibility: hidden;
+                animation-fill-mode: forwards;
+                margin-left: 50px;
+            }
+
+            h2 {
+                font-size: 26px;
+                color: white;
+                animation: moveright 1s linear;
+                animation-delay: 1s;
+                visibility: hidden;
+                animation-fill-mode: forwards;
+                margin-left: 50px;
+            }
+
+            h3 {
+                font-size: 62px;
+                color: red;
+                bottom: 282px;
+                margin-left: -103px;
+                margin-top: -26px;
+                animation: moveright 1s linear;
+                animation-delay: 2s;
+                visibility: hidden;
+                animation-fill-mode: forwards;
+            }
+
+            section>div>img {
+                border-radius: 200px;
+                position: absolute;
+                right: -449px;
+                top: 552px;
+                animation: zoomin 3s linear 1;
+                animation-delay: 0.1s;
+                visibility: hidden;
+                animation-fill-mode: forwards;
+            }
+
+        }
+
+
+
 </style>
 </head>
 <body>
