@@ -173,9 +173,6 @@
         }
 
 
-
-
-
         /*header{*/
         /*    position: relative;*/
         /*    height: 80px;*/
@@ -237,14 +234,47 @@
         }
 
 
-
-
-
         div>h1{
             color: white;
             margin-top: -64px;
             font-size: 50px;
         }
+
+
+         @media all and(min-width: 320px) {
+             header {
+                 color: #4e52e9;
+                 margin-left: 40px;
+                 font-size: 28px;
+                 font-family: "Righteous", cursive;
+                 margin-left: 354px;
+             }
+
+             section>img {
+                 position: absolute;
+                 right: -447px;
+                 top: 0px;
+                 margin-top: 85px;
+             }
+             section>ul>li>h3 {
+                 margin-left: 155px;
+                 font-size: 25px;
+                 font-family: "Righteous", cursive;
+                 list-style: none;
+                 color: white;
+             }
+             .navigation {
+                 position: absolute;
+                 inset: 20px 0 20px 20px;
+                 width: 105px;
+                 background: #4f5050;
+                 transition: 0.5s;
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+             }
+        }
+
 
 
     </style>
@@ -318,8 +348,6 @@
 <header>
     <h1>About Me</h1>
 </header>
-
-
 
     <section>
 
