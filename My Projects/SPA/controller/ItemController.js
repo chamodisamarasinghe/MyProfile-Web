@@ -211,3 +211,27 @@ $('#btnItemSave').click(function () {
 });
 
 // Item validation end
+
+
+//Update
+$("#btnItemUpdate").click(function () {
+    let itemCode = $("#txtItemCode").val();
+    let itemName = $("#txtItemName").val();
+    let price = $("#txtPrice").val();
+    let qty = $("#txtQty").val();
+
+    for (var i = 0; i < itemDB.length; i++) {
+        if ($("#txtItemCode").val()==itemDB[i].itemCode){
+            console.log("Enter");
+            itemDB[i].itemCode= itemCode;
+            itemDB[i].itemName=itemName;
+            itemDB[i].price=price;
+            itemDB[i].qty=qty;
+        }
+    }
+    loadAllItems();
+    clearAll();
+
+});
+
+
