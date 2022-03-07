@@ -58,7 +58,7 @@ function searchCustomer(customerId){
 
 
 
-// Update()
+
 
 
 
@@ -222,4 +222,28 @@ function setCusButton() {
 
 $('#btnSave').click(function () {
     checkIfValid();
+});
+
+
+
+
+// Update
+$("#btnUpdate").click(function () {
+    let customerId = $("#txtCusID").val();
+    let customerName = $("#txtCusName").val();
+    let customerAddress = $("#txtAddress").val();
+    let customerSalary = $("#txtSalary").val();
+
+    for (var i = 0; i < customerDB.length; i++) {
+        if ($("#txtCusID").val()==customerDB[i].customerId){
+            console.log("Enter");
+            customerDB[i].customerId= customerId;
+            customerDB[i].customerName=customerName;
+            customerDB[i].customerddress=customerAddress;
+            customerDB[i].customerSalary=customerSalary;
+        }
+    }
+    loadAllCustomers();
+    clearAllCustomers();
+
 });
