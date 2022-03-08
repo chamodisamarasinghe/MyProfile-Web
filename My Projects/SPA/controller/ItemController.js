@@ -235,3 +235,19 @@ $("#btnItemUpdate").click(function () {
 });
 
 
+
+$("#tableItem").on('click', '#btnItemDelete', function () {
+    var index = 0;
+    for (var i = 0; i < itemDB.length; i++) {
+        if ($("#txtItemCode").val() == itemDB[i].id) {
+            index = i;
+        }
+    }
+    itemDB.splice(index, 1);
+
+    clearAll();
+
+    $(this).closest('tr').remove();
+
+});
+
