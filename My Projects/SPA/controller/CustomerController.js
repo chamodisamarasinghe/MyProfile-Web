@@ -9,10 +9,10 @@ $("#btnSearch").click(function () {
 
     var response = searchCustomer(searchId);
     if (response) {
-        $("#txtCusID").val(response.customerId);
-        $("#txtCusName").val(response.customerName);
-        $("#txtAddress").val(response.customerAddress);
-        $("#txtSalary").val(response.customerSalary);
+        $("#txtCusID").val(response.id);
+        $("#txtCusName").val(response.name);
+        $("#txtAddress").val(response.address);
+        $("#txtSalary").val(response.salary);
     }else{
         clearAllCustomers();
         alert("No Such a Customer");
@@ -24,38 +24,78 @@ $("#btnSearch").click(function () {
 function loadAllCustomers(){
     $("#customerTable").empty();
     for(var i of customerDB){
-        let row= `<tr><td>${i.customerId}</td><td>${i.customerName}</td><td>${i.customerAddress}</td><td>${i.customerSalary}</td> </tr>`;
+        let row= `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.address}</td><td>${i.salary}</td> </tr>`;
 
         $("#customerTable").append(row);
     }
+
+    $("#customerTable>tr").click(function () {
+        console.log($(this));
+
+        let customerDTO = new CustomerDTO(
+            $(this).children(":eq(0)").text(),
+            $(this).children(":eq(1)").text(),
+            $(this).children(":eq(2)").text(),
+            $(this).children(":eq(3)").text());
+
+        $("#txtCusID").val(customerDTO.cid);
+        $("#txtCusName").val(customerDTO.cname);
+        $("#txtAddress").val(customerDTO.caddress);
+        $("#txtSalary").val(customerDTO.csalary);
+
+    });
 }
 
 
-function saveCustomer(){
-    let customerId = $("#txtCusID").val();
-    let customerName = $("#txtCusName").val();
-    let customerAddress = $("#txtAddress").val();
-    let customerSalary = $("#txtSalary").val();
+function saveCustomer() {
+    let dC = duplicateCheck();
 
+    if (dC) {
+        alert("This CustomerId Already Added ,Try Again")
+    } else {
+        confirm("Do you want to add this Customer..?")
 
-    var customerObject = {
-        customerId: customerId,
-        customerName: customerName,
-        customerAddress: customerAddress,
-        customerSalary: customerSalary
-    };
-    customerDB.push(customerObject);
+        // let customerId = $("#txtCusID").val();
+        // let customerName = $("#txtCusName").val();
+        // let customerAddress = $("#txtAddress").val();
+        // let customerSalary = $("#txtSalary").val();
+        let customerDTO = new CustomerDTO(
+            $("#txtCusID").val(),
+            $("#txtCusName").val(),
+            $("#txtAddress").val(),
+            $("#txtSalary").val());
+
+        var customerObject = {
+            id: customerDTO.cid,
+            name: customerDTO.cname,
+            address: customerDTO.caddress,
+            salary: customerDTO.csalary
+
+            // customerId: customerId,
+            // customerName: customerName,
+            // customerAddress: customerAddress,
+            // customerSalary: customerSalary
+        };
+        customerDB.push(customerObject);
+    }
 }
-
-function searchCustomer(customerId){
+function searchCustomer(id){
     for (let i = 0; i < customerDB.length; i++) {
-        if (customerDB[i].customerId == customerId) {
+        if (customerDB[i].id == id) {
             return customerDB[i];
         }
     }
 }
 
+function duplicateCheck() {
+    for (var i = 0; i < customerDB.length; i++) {
+        if ($("#txtCusID").val() === customerDB[i].id) {
 
+            return true;
+        }
+    }
+    return false
+}
 
 
 
@@ -229,21 +269,50 @@ $('#btnSave').click(function () {
 
 // Update
 $("#btnUpdate").click(function () {
-    let customerId = $("#txtCusID").val();
-    let customerName = $("#txtCusName").val();
-    let customerAddress = $("#txtAddress").val();
-    let customerSalary = $("#txtSalary").val();
+    // let customerId = $("#txtCusID").val();
+    // let customerName = $("#txtCusName").val();
+    // let customerAddress = $("#txtAddress").val();
+    // let customerSalary = $("#txtSalary").val();
+
+    let customerDTO = new CustomerDTO(
+        $("#txtCusID").val(),
+        $("#txtCusName").val(),
+        $("#txtAddress").val(),
+        $("#txtSalary").val());
+
+
 
     for (var i = 0; i < customerDB.length; i++) {
-        if ($("#txtCusID").val()==customerDB[i].customerId){
+        if ($("#txtCusID").val()==customerDB[i].id){
             console.log("Enter");
-            customerDB[i].customerId= customerId;
-            customerDB[i].customerName=customerName;
-            customerDB[i].customerddress=customerAddress;
-            customerDB[i].customerSalary=customerSalary;
+            customerDB[i].id = customerDTO.cid;
+            customerDB[i].name = customerDTO.cname;
+            customerDB[i].address = customerDTO.caddress;
+            customerDB[i].salary = customerDTO.csalary;
+
+            alert("Successfully Updated")
+            // customerDB[i].customerId= customerId;
+            // customerDB[i].customerName=customerName;
+            // customerDB[i].customerddress=customerAddress;
+            // customerDB[i].customerSalary=customerSalary;
         }
     }
     loadAllCustomers();
     clearAllCustomers();
 
+});
+
+
+$("#btnDelete").click(function () {
+    var index = 0;
+    for (var i = 0; i < customerDB.length; i++) {
+        if ($("#txtCusID").val() === customerDB[i].id) {
+            index = i;
+        }
+    }
+    customerDB.splice(index, 1);
+    clearAll();
+    $(this).closest('tr').remove();
+
+    confirm("Do you want to delete this Customer..?")
 });
