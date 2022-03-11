@@ -79,6 +79,10 @@ function saveCustomer() {
         customerDB.push(customerObject);
     }
 }
+
+
+
+
 function searchCustomer(id){
     for (let i = 0; i < customerDB.length; i++) {
         if (customerDB[i].id == id) {

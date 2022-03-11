@@ -9,8 +9,8 @@ $("#btnItemSearch").click(function () {
 
     var response = searchItem(searchId);
     if (response) {
-        $("#txtItemCode").val(response.itemCode);
-        $("#txtItemName").val(response.itemName);
+        $("#txtItemCode").val(response.code);
+        $("#txtItemName").val(response.name);
         $("#txtPrice").val(response.price);
         $("#txtQty").val(response.qty);
     }else{
@@ -23,36 +23,80 @@ $("#btnItemSearch").click(function () {
 function loadAllItems(){
     $("#tableItem").empty();
     for(var i of itemDB){
-        let row= `<tr><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.price}</td><td>${i.qty}</td> </tr>`;
+        let row= `<tr><td>${i.code}</td><td>${i.name}</td><td>${i.price}</td><td>${i.qty}</td> </tr>`;
 
         $("#tableItem").append(row);
+    }
+
+    $("#tableItem>tr").click(function () {
+        console.log($(this));
+
+        let itemDTO = new ItemDTO(
+            $(this).children(":eq(0)").text(),
+            $(this).children(":eq(1)").text(),
+            $(this).children(":eq(2)").text(),
+            $(this).children(":eq(3)").text());
+
+        $("#txtItemCode").val(itemDTO.icode);
+        $("#txtItemName").val(itemDTO.iname);
+        $("#txtPrice").val(itemDTO.iprice);
+        $("#txtQty").val(itemDTO.iqty);
+
+    });
+}
+
+
+function saveItem() {
+    // let itemCode = $("#txtItemCode").val();
+    // let itemName = $("#txtItemName").val();
+    // let price = $("#txtPrice").val();
+    // let qty = $("#txtQty").val();
+    let dC = duplicateCheck();
+
+    if (dC) {
+        alert("This ItemCode Already Added ,Try Again")
+    } else {
+        confirm("Do you want to add this Item..?")
+
+        let itemDTO = new ItemDTO(
+            $("#txtItemCode").val(),
+            $("#txtItemName").val(),
+            $("#txtPrice").val(),
+            $("#txtQty").val());
+
+
+        var itemObject = {
+            code: itemDTO.icode,
+            name: itemDTO.iname,
+            price: itemDTO.iprice,
+            qty: itemDTO.iqty
+        };
+        itemDB.push(itemObject);
     }
 }
 
 
-function saveItem(){
-    let itemCode = $("#txtItemCode").val();
-    let itemName = $("#txtItemName").val();
-    let price = $("#txtPrice").val();
-    let qty = $("#txtQty").val();
 
 
-    var itemObject = {
-        itemCode: itemCode,
-        itemName: itemName,
-        price: price,
-        qty: qty
-    };
-    itemDB.push(itemObject);
-}
-
-function searchItem(itemCode){
+function searchItem(code){
     for (let i = 0; i < itemDB.length; i++) {
-        if (itemDB[i].itemCode == itemCode) {
+        if (itemDB[i].code == code) {
             return itemDB[i];
         }
     }
 }
+
+
+function duplicateCheck() {
+    for (var i = 0; i < itemDB.length; i++) {
+        if ($("#txtItemCode").val() === itemDB[i].code) {
+
+            return true;
+        }
+    }
+    return false
+}
+
 
 
 
@@ -215,18 +259,25 @@ $('#btnItemSave').click(function () {
 
 //Update
 $("#btnItemUpdate").click(function () {
-    let itemCode = $("#txtItemCode").val();
-    let itemName = $("#txtItemName").val();
-    let price = $("#txtPrice").val();
-    let qty = $("#txtQty").val();
+    // let itemCode = $("#txtItemCode").val();
+    // let itemName = $("#txtItemName").val();
+    // let price = $("#txtPrice").val();
+    // let qty = $("#txtQty").val();
+
+    let itemDTO = new ItemDTO(
+      $("#txtItemCode").val(),
+      $("#txtItemName").val(),
+      $("#txtPrice").val(),
+      $("#txtQty").val());
+
 
     for (var i = 0; i < itemDB.length; i++) {
-        if ($("#txtItemCode").val()==itemDB[i].itemCode){
+        if ($("#txtItemCode").val()==itemDB[i].code){
             console.log("Enter");
-            itemDB[i].itemCode= itemCode;
-            itemDB[i].itemName=itemName;
-            itemDB[i].price=price;
-            itemDB[i].qty=qty;
+            itemDB[i].code= itemDTO.icode;
+            itemDB[i].name=itemDTO.iname;
+            itemDB[i].price=itemDTO.iprice;
+            itemDB[i].qty=itemDTO.iqty;
         }
     }
     loadAllItems();
@@ -236,18 +287,17 @@ $("#btnItemUpdate").click(function () {
 
 
 
-$("#tableItem").on('click', '#btnItemDelete', function () {
+$("#btnItemDelete").click(function () {
     var index = 0;
     for (var i = 0; i < itemDB.length; i++) {
-        if ($("#txtItemCode").val() == itemDB[i].id) {
+        if ($("#txtItemCode").val() === itemDB[i].code) {
             index = i;
         }
     }
     itemDB.splice(index, 1);
-
     clearAll();
-
     $(this).closest('tr').remove();
 
+    confirm("Do you want to delete this Item..?")
 });
 
