@@ -1,7 +1,7 @@
-function OrderDTO(oid,cid,cname,iprice,iqty,total) {
+function OrderDTO(oid,cid,icode,iprice,iqty,total) {
 
     var orderId = oid;
-    var name = cname;
+    var id = cid;
     var itemCode = icode;
     var price = iprice;
     var qty = iqty;
@@ -18,12 +18,12 @@ function OrderDTO(oid,cid,cname,iprice,iqty,total) {
     });
 
 
-    Object.defineProperty(this, "cname", {
+    Object.defineProperty(this, "cid", {
         get: function () {
-            return name;
+            return id;
         },
-        set: function (cname) {
-            this.name = cname;
+        set: function (cid) {
+            this.id = cid;
         }
     });
 

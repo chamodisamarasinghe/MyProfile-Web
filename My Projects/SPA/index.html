@@ -596,27 +596,27 @@
                 </div>
 
                 <div class="col-12">
-                    <label for="inputAddress" class="form-label">Order Date</label>
-                    <input type="text" class="form-control" id="Address" placeholder="10/09/2022">
+                    <label for="txtOrderDate" class="form-label">Order Date</label>
+                    <input type="text" class="form-control" id="txtOrderDate" placeholder="10/09/2022">
                 </div>
 
                 <div class="row g-2">
                     <div class="col-md">
                         <div class="form-floating">
-                            <input type="email" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="O-001">
-                            <label for="floatingInputGrid">Order Id</label>
+                            <input type="email" class="form-control" id="txtOrderId" placeholder="name@example.com" value="O-001">
+                            <label for="txtOrderId">Order Id</label>
                         </div>
                     </div>
 
                     <div class="col-md">
                         <div class="form-floating">
-                            <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-                                <option selected>C-001</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="form-select" id="txtCustomerIds" aria-label="Floating label select example">
+<!--                                <option selected>C-001</option>-->
+<!--                                <option value="1">One</option>-->
+<!--                                <option value="2">Two</option>-->
+<!--                                <option value="3">Three</option>-->
                             </select>
-                            <label for="floatingSelectGrid">Customer Id</label>
+                            <label for="txtCustomerIds">Customer Id</label>
                         </div>
                     </div>
                 </div>
@@ -624,16 +624,16 @@
 
                 <form class="row g-3">
                     <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">Name</label>
-                        <input type="email" class="form-control" id="inputmail4">
+                        <label for="txtCustomerName" class="form-label">Name</label>
+                        <input type="email" class="form-control" id="txtCustomerName">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">Salary</label>
-                        <input type="password" class="form-control" id="inputword4">
+                        <label for="txtCustomerSalary" class="form-label">Salary</label>
+                        <input type="text" class="form-control" id="txtCustomerSalary">
                     </div>
                     <div class="col-12">
-                        <label for="inputAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="inputAddress12" placeholder="1234 Main St">
+                        <label for="txtCustomerAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="txtCustomerAddress" placeholder="1234 Main St">
                     </div>
 
 
@@ -651,16 +651,16 @@
                     </div>
                 </div>
 
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" id="txtItemCodes" aria-label="Default select example">
                     <option selected>Item Code</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+<!--                    <option value="1">One</option>-->
+<!--                    <option value="2">Two</option>-->
+<!--                    <option value="3">Three</option>-->
                 </select>
 
                 <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Item</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Sugar">
+                    <label for="txtItem" class="form-label">Item</label>
+                    <input type="text" class="form-control" id="txtItem" placeholder="Sugar">
                 </div>
 
 
@@ -668,19 +668,19 @@
 
 
                     <div class="col-md-6">
-                        <label for="inputCity" class="form-label">Price</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <label for="txtItemPrice" class="form-label">Price</label>
+                        <input type="text" class="form-control" id="txtItemPrice">
                     </div>
                     <div class="col-md-4">
-                        <label for="inputState" class="form-label">Qty On Hand</label>
-                        <select id="inputState" class="form-select">
+                        <label for="txtQtyOnHand" class="form-label">Qty On Hand</label>
+                        <select id="txtQtyOnHand" class="form-select">
                             <option selected>Choose...</option>
                             <option>...</option>
                         </select>
                     </div>
                     <div class="col-md-2">
-                        <label for="inputZip" class="form-label">Qty</label>
-                        <input type="text" class="form-control" id="inputZip">
+                        <label for="txtItemQty" class="form-label">Qty</label>
+                        <input type="text" class="form-control" id="txtItemQty">
                     </div>
                     <div class="col-12">
                         <div class="form-check">
@@ -691,7 +691,7 @@
                         </div>
                     </div>
                     <div class="col-12 ">
-                        <button type="submit" class="btn btn-primary bg-danger">Add Item</button>
+                        <button type="submit" id="btnAddDetails" class="btn btn-primary bg-danger">Add Item</button>
                     </div>
                 </form>
             </div>
@@ -708,7 +708,7 @@
                 <section class="row">
                     <div class="col">
 
-                            <p class="fw-bold">Total : 0.00</p>
+                            <p id="txtTotal"  class="fw-bold">Total : 0.00</p>
 
 
 
@@ -737,7 +737,7 @@
                         <input type="email" class="form-control" id="example" placeholder="0.00">
                     </div>
                 </section>
-                <button type="button" class="btn btn-success">Purchase Order</button>
+                <button type="button" id="btnPlaceOrder" class="btn btn-success">Purchase Order</button>
 
 
 
@@ -749,7 +749,7 @@
 
         <!--    row 2-->
         <section class="row mt-5">
-            <table class="table">
+            <table class="table" >
                 <thead>
                 <tr>
                     <th>Order ID</th>
@@ -760,16 +760,7 @@
                     <th>Total</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>I-001</td>
-                    <td>Sugar</td>
-                    <td>700.00</td>
-                    <td>5</td>
-                    <td>3500.00</td>
-                </tr>
-
-                </tbody>
+                <tbody id="tblOrder"></tbody>
             </table>
         </section>
 
@@ -793,6 +784,7 @@
 <script src="db/DB.js"></script>
 <script src="model/CustomerDTO.js"></script>
 <script src="model/ItemDTO.js"></script>
+<script src="model/OrderDTO.js"></script>
 
 <script>
 
@@ -1265,6 +1257,34 @@
 //
 // // Item validation end
 
+    $("#linkOrder").click(function () {
+        setCustomerIdsToComboBox();
+        setItemCodesToComboBox();
+    });
+
+    $("#linkOrder").click(function () {
+        setCustomerIdsToComboBox();
+        setItemCodesToComboBox();
+    })
+
+
+
+    function setCustomerIdsToComboBox() {
+        $("#txtCustomerIds").empty();
+        $("#txtCustomerIds").append(new Option("-Select Item-", ""));
+        for (var i = 0; i < customerDB.length; i++) {
+            $("#txtCustomerIds").append(new Option(customerDB[i].id, i));
+        }
+    }
+
+    function setItemCodesToComboBox() {
+        $("#txtItemCodes").empty();
+        $("#txtItemCodes").append(new Option("-Select Item-", ""));
+        for (var i = 0; i < itemDB.length; i++) {
+            $("#txtItemCodes").append(new Option(itemDB[i].code, i));
+
+        }
+    }
 
 
 </script>
