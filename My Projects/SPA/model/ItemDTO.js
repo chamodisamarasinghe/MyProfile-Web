@@ -6,6 +6,7 @@ function ItemDTO(icode,iname,iprice,iqty) {
     var qty = iqty;
 
 
+
     Object.defineProperty(this, "icode", {
         get: function () {
             return code;
@@ -14,6 +15,7 @@ function ItemDTO(icode,iname,iprice,iqty) {
             this.code = icode;
         }
     });
+
 
 
     Object.defineProperty(this, "iname", {
@@ -26,6 +28,7 @@ function ItemDTO(icode,iname,iprice,iqty) {
     });
 
 
+
     Object.defineProperty(this, "iprice", {
         get: function () {
             return price;
@@ -34,6 +37,7 @@ function ItemDTO(icode,iname,iprice,iqty) {
             this.price = iprice;
         }
     });
+
 
 
     Object.defineProperty(this, "iqty", {

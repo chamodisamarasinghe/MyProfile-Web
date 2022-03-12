@@ -155,6 +155,14 @@
         line-height: 1.25;
         margin-top: 17px;
     }
+
+
+    p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #ee0b3f;
+        font-size: 30px;
+    }
 </style>
 
 
@@ -699,6 +707,12 @@
 
                 <section class="row">
                     <div class="col">
+
+                            <p class="fw-bold">Total : 0.00</p>
+
+
+
+
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cash</label>
                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="0.00">
@@ -724,7 +738,12 @@
                     </div>
                 </section>
                 <button type="button" class="btn btn-success">Purchase Order</button>
+
+
+
             </div>
+
+
 
         </section>
 
@@ -733,7 +752,8 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Item Code</th>
+                    <th>Order ID</th>
+                    <th>Customer Id</th>
                     <th>Item Name</th>
                     <th>Price</th>
                     <th>Quantity</th>
@@ -752,6 +772,8 @@
                 </tbody>
             </table>
         </section>
+
+
 
     </main>
 
@@ -807,6 +829,12 @@
         $("#order").css("display", "none");
     });
 
+    $("#linkHome").click(function () {
+        $("#dashBoard").css("display", "block");
+        $("#customer").css("display", "none");
+        $("#item").css("display", "none");
+        $("#order").css("display", "none");
+    });
 
     // customer form
 
