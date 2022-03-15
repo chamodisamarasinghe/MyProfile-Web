@@ -1,69 +1,54 @@
-function OrderDTO(oid,cid,icode,iprice,iqty,total) {
+function OrderDTO(oid,cid,fullTotal,date) {
+    var orderId =oid;
+    var cusId=cid;
+    var tot=fullTotal;
+    var day=date;
 
-    var orderId = oid;
-    var id = cid;
-    var itemCode = icode;
-    var price = iprice;
-    var qty = iqty;
-    var tot = total;
-
-
-    Object.defineProperty(this, "oid", {
-        get: function () {
+    Object.defineProperty(this,"oid",{
+        get:function()
+        {
             return orderId;
         },
-        set: function (oid) {
-            this.orderId = oid;
+        set:function(oid)
+        {
+            this.orderId=oid;
         }
     });
 
 
-    Object.defineProperty(this, "cid", {
-        get: function () {
-            return id;
+    Object.defineProperty(this,"cid",{
+        get:function()
+        {
+            return cusId;
         },
-        set: function (cid) {
-            this.id = cid;
-        }
-    });
-
-    Object.defineProperty(this, "icode", {
-        get: function () {
-            return itemCode;
-        },
-        set: function (icode) {
-            this.itemCode = icode;
-        }
-    });
-
-
-    Object.defineProperty(this, "iprice", {
-        get: function () {
-            return price;
-        },
-        set: function (iprice) {
-            this.price = iprice;
+        set:function(cid)
+        {
+            this.cusId=cid;
         }
     });
 
 
 
-    Object.defineProperty(this, "iqty", {
-        get: function () {
-            return qty;
-        },
-        set: function (iqty) {
-            this.qty = iqty;
-        }
-    });
-
-
-    Object.defineProperty(this, "total", {
-        get: function () {
+    Object.defineProperty(this,"fullTotal",{
+        get:function()
+        {
             return tot;
         },
-        set: function (total) {
-            this.itotd = total;
+        set:function(fullTotal)
+        {
+            this.tot=fullTotal;
         }
     });
+
+    Object.defineProperty(this,"date",{
+        get:function()
+        {
+            return day;
+        },
+        set:function(date)
+        {
+            this.day=date;
+        }
+    });
+
 }

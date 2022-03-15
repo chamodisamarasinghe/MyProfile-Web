@@ -10,7 +10,7 @@ $("#btnItemSearch").click(function () {
     var response = searchItem(searchId);
     if (response) {
         $("#txtItemCode").val(response.code);
-        $("#txtItemName").val(response.name);
+        $("#txtItemName").val(response.itemName);
         $("#txtPrice").val(response.price);
         $("#txtQty").val(response.qty);
     }else{
@@ -23,7 +23,7 @@ $("#btnItemSearch").click(function () {
 function loadAllItems(){
     $("#tableItem").empty();
     for(var i of itemDB){
-        let row= `<tr><td>${i.code}</td><td>${i.name}</td><td>${i.price}</td><td>${i.qty}</td> </tr>`;
+        let row= `<tr><td>${i.code}</td><td>${i.itemName}</td><td>${i.price}</td><td>${i.qty}</td> </tr>`;
 
         $("#tableItem").append(row);
     }
@@ -67,7 +67,7 @@ function saveItem() {
 
         var itemObject = {
             code: itemDTO.icode,
-            name: itemDTO.iname,
+            itemName: itemDTO.iname,
             price: itemDTO.iprice,
             qty: itemDTO.iqty
         };
@@ -275,7 +275,7 @@ $("#btnItemUpdate").click(function () {
         if ($("#txtItemCode").val()==itemDB[i].code){
             console.log("Enter");
             itemDB[i].code= itemDTO.icode;
-            itemDB[i].name=itemDTO.iname;
+            itemDB[i].itemName=itemDTO.iname;
             itemDB[i].price=itemDTO.iprice;
             itemDB[i].qty=itemDTO.iqty;
         }

@@ -7,12 +7,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
+    body{
+        background-color: darkslategrey;
+    }
+
+    .form-label {
+        margin-bottom: 0.5rem;
+        height: 4px;
+        color: white;
+    }
+
+    .h2, h2 {
+        font-size: calc(1.325rem + .9vw);
+        color: orange;
+        font-size: 50px;
+        margin-left: 450px;
+        margin-top: 100px;
+    }
+
+    .row {
+        --bs-gutter-x: -2.5rem;
+        --bs-gutter-y: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: calc(-1 * var(--bs-gutter-y));
+        margin-right: calc(-.5 * var(--bs-gutter-x));
+        margin-left: calc(-.5 * var(--bs-gutter-x));
+    }
+
+    .form-control {
+        display: block;
+        width: 77%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
 
     .navbar-light .navbar-brand {
         color: rgb(28 145 58 );
         font-size: 40px;
         font-weight: bolder;
     }
+
+    .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+        display: flex;
+        flex-wrap: inherit;
+        align-items: center;
+        justify-content: space-between;
+        /* color: green; */
+        background-color: #bdd4bd;
+    }
+
+
     .card-body {
         flex: 1 1 auto;
         padding: 1rem 1rem;
@@ -163,6 +220,8 @@
         color: #ee0b3f;
         font-size: 30px;
     }
+
+
 </style>
 
 
@@ -201,8 +260,8 @@
 
             </ul>
             <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+<!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                <button class="btn btn-outline-success" type="submit">Search</button>-->
             </form>
         </div>
     </div>
@@ -307,12 +366,12 @@
         <!--    customer main-->
 
         <main class="container ">
-            <div class=" mt-5 alert alert-success" role="alert">
-                Customer
-            </div>
+<!--            <div class=" mt-5 alert alert-success" role="alert">-->
+<!--                Customer-->
+<!--            </div>-->
 
-
-            <button type="button" class="btn btn-info mt-5">View All Customers</button>
+            <p class="fw-bold"><h2>Customer Form</h2></p>
+<!--            <button type="button" class="btn btn-info mt-5">View All Customers</button>-->
 
             <section class="row">
 
@@ -432,29 +491,30 @@
         <!--    item main-->
 
         <main class="container">
-            <div class="mt-5 alert alert-success" role="alert">
-                Item
-            </div>
+<!--            <div class="mt-5 alert alert-success" role="alert">-->
+<!--                Item-->
+<!--            </div>-->
 
-            <nav class="mt-30 navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+<!--            <nav class="mt-30 navbar navbar-expand-lg navbar-light bg-light">-->
+<!--                <div class="container-fluid">-->
 
-                    <div class="mt-10  collapse navbar-collapse" id="Nav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Item</a>
-                            </li>
+<!--                    <div class="mt-10  collapse navbar-collapse" id="Nav">-->
+<!--                        <ul class="navbar-nav">-->
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link active" aria-current="page" href="#">Home</a>-->
+<!--                            </li>-->
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link" href="#">Item</a>-->
+<!--                            </li>-->
 
-                        </ul>
+<!--                        </ul>-->
                     </div>
                 </div>
             </nav>
 
 
-            <button type="button" class="btn btn-info mt-2">View All Items</button>
+<!--            <button type="button" class="btn btn-info mt-2">View All Items</button>-->
+            <p class="fw-bold"><h2>Item Form</h2></p>
 
             <section class="row">
 
@@ -478,8 +538,8 @@
                                     <input type="text" id="txtSearchItemCode" class="form-control" placeholder="Input Code here">
                                 </div>
                                 <div class="mb-3">
-                                    <select id="Select" class="form-select">
-                                        <option>Name</option>
+<!--                                    <select id="Select" class="form-select">-->
+<!--                                        <option>Name</option>-->
                                     </select>
                                 </div>
 
@@ -580,9 +640,10 @@
     <main class="mt-5 container-fluid">
         <section class="row">
             <main class="container">
-                <div class="alert alert-success" role="alert">
-                    Purchase Order
-                </div>
+                <p class="fw-bold"><h2>Purchase Order</h2></p>
+<!--                <div class="alert alert-success" role="alert">-->
+<!--                    Purchase Order-->
+<!--                </div>-->
             </main>
         </section>
 
@@ -597,13 +658,14 @@
 
                 <div class="col-12">
                     <label for="txtOrderDate" class="form-label">Order Date</label>
-                    <input type="text" class="form-control" id="txtOrderDate" placeholder="10/09/2022">
+<!--                    <input type="text" class="form-control" id="txtOrderDate" placeholder="10/09/2022">-->
+                    <input class="form-control" id="txtOrderDate" name="OrderDate" type="date">
                 </div>
 
                 <div class="row g-2">
                     <div class="col-md">
                         <div class="form-floating">
-                            <input type="email" class="form-control" id="txtOrderId" placeholder="name@example.com" value="O-001">
+                            <input type="email" class="form-control" id="txtOrderId" placeholder="name@example.com" value="">
                             <label for="txtOrderId">Order Id</label>
                         </div>
                     </div>
@@ -612,9 +674,9 @@
                         <div class="form-floating">
                             <select class="form-select" id="txtCustomerIds" aria-label="Floating label select example">
 <!--                                <option selected>C-001</option>-->
-<!--                                <option value="1">One</option>-->
-<!--                                <option value="2">Two</option>-->
-<!--                                <option value="3">Three</option>-->
+                                <!--                                <option value="1">One</option>-->
+                                <!--                                <option value="2">Two</option>-->
+                                <!--                                <option value="3">Three</option>-->
                             </select>
                             <label for="txtCustomerIds">Customer Id</label>
                         </div>
@@ -660,7 +722,7 @@
 
                 <div class="mb-3">
                     <label for="txtItem" class="form-label">Item</label>
-                    <input type="text" class="form-control" id="txtItem" placeholder="Sugar">
+                    <input type="text" class="form-control" id="txtItem">
                 </div>
 
 
@@ -673,9 +735,10 @@
                     </div>
                     <div class="col-md-4">
                         <label for="txtQtyOnHand" class="form-label">Qty On Hand</label>
-                        <select id="txtQtyOnHand" class="form-select">
-                            <option selected>Choose...</option>
-                            <option>...</option>
+<!--                        <select id="txtQtyOnHand" class="form-select">-->
+                        <input type="text" class="form-control" id="txtQtyOnHand">
+<!--                            <option selected>Choose...</option>-->
+<!--                            <option>...</option>-->
                         </select>
                     </div>
                     <div class="col-md-2">
@@ -684,14 +747,14 @@
                     </div>
                     <div class="col-12">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Check me out
+<!--                            <input class="form-check-input" type="checkbox" id="gridCheck">-->
+<!--                            <label class="form-check-label" for="gridCheck">-->
+<!--                                Check me out-->
                             </label>
                         </div>
                     </div>
                     <div class="col-12 ">
-                        <button type="submit" id="btnAddDetails" class="btn btn-primary bg-danger">Add Item</button>
+                        <button type="button" id="btnAddDetails" class="btn btn-primary bg-danger">Add Item</button>
                     </div>
                 </form>
             </div>
@@ -714,15 +777,15 @@
 
 
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Cash</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="0.00">
+                            <label for="txtCash" class="form-label">Cash</label>
+                            <input type="email" class="form-control" id="txtCash" placeholder="0.00">
                         </div>
 
                     </div>
 
                     <div class="col">
-                        <select class="form-select" multiple aria-label="multiple select example">
-                            <option selected>Discount</option>
+<!--                        <select class="form-select" multiple aria-label="multiple select example">-->
+<!--                            <option selected>Discount</option>-->
                             <!--                        <option value="1">One</option>-->
                             <!--                        <option value="2">Two</option>-->
                             <!--                        <option value="3">Three</option>-->
@@ -733,8 +796,8 @@
 
                 <section class="row">
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Balance</label>
-                        <input type="email" class="form-control" id="example" placeholder="0.00">
+                        <label for="txtBalance" class="form-label">Balance</label>
+                        <input type="email" class="form-control" id="txtBalance" placeholder="0.00">
                     </div>
                 </section>
                 <button type="button" id="btnPlaceOrder" class="btn btn-success">Purchase Order</button>
@@ -1256,6 +1319,20 @@
 //     });
 //
 // // Item validation end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     $("#linkOrder").click(function () {
         setCustomerIdsToComboBox();

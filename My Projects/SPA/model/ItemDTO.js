@@ -1,7 +1,7 @@
 function ItemDTO(icode,iname,iprice,iqty) {
 
     var code = icode;
-    var name = iname;
+    var itemName = iname;
     var price = iprice;
     var qty = iqty;
 
@@ -20,10 +20,10 @@ function ItemDTO(icode,iname,iprice,iqty) {
 
     Object.defineProperty(this, "iname", {
         get: function () {
-            return name;
+            return itemName;
         },
         set: function (iname) {
-            this.name = iname;
+            this.itemName = iname;
         }
     });
 
