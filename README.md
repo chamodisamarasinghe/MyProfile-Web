@@ -7,7 +7,7 @@ It includes my own details and some assignments.
  Coding style:  HTML, CSS
 
 
-<img src="assests/images/home.png" width="200">
+
 
 
 Site Map URL = https://www.gloomaps.com/jEXsYpAHg7
@@ -19,3 +19,6 @@ Mock-up URL = https://www.figma.com/file/qAUjijxz0l5E4UFBJQKqPL/Untitled?node-id
 Github Pages URL for MyProfile = https://github.com/chamodisamarasinghe/MyProfile
 
 Webhost link = https://chamodisamarasinghe.000webhostapp.com/
+
+
+<img src="assests/images/Home%20Page.png" width="400">
