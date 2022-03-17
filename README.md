@@ -21,4 +21,6 @@ Github Pages URL for MyProfile = https://chamodisamarasinghe.github.io/MyProfile
 Webhost link = https://chamodisamarasinghe.000webhostapp.com/
 
 
-<img src="assests/images/Home%20Page.png" width="400">
+<img src="assests/images/Home%20Page.png" width="900">
+
+<img src="assests/images/about%20page.png" width="900">
