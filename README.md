@@ -18,6 +18,4 @@ Mock-up URL = https://www.figma.com/file/qAUjijxz0l5E4UFBJQKqPL/Untitled?node-id
 
 Github Pages URL for MyProfile = https://github.com/chamodisamarasinghe/MyProfile
 
-MyProfile Link = http://localhost:63342/MyProfile/home/index.html?_ijt=2fd5o88d2h34qepui8fqum5jh
-
 Webhost link = https://chamodisamarasinghe.000webhostapp.com/
