@@ -23,5 +23,5 @@ Webhost link = https://chamodisamarasinghe.000webhostapp.com/
 
 <img src="assests/images/Home%20Page.png" width="1000">
 
-
+<img src="assests/images/About.png" width="1000">
 
