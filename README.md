@@ -25,3 +25,5 @@ Webhost link = https://chamodisamarasinghe.000webhostapp.com/
 
 <img src="assests/images/About.png" width="1000">
 
+<img src="assests/images/Education%20page.png" width="1000">
+
