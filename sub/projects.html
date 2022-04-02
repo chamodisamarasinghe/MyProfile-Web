@@ -5,7 +5,7 @@
     <title>Projects</title>
     <meta name="viewport" content="width=device-width initial-scale=1">
     <meta name="theme -color" content="blue">
-    <link href="assests/css/normalize.css" rel="stylesheet">
+    <link href="assests/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -171,6 +171,91 @@
         .navigation ul li.active a .text{
             color: var(--clr);
         }
+
+/*================================================================*/
+        body{
+            margin: 0;
+            padding: 0;
+            background: #262626;
+            font-family: sans-serif;
+        }
+
+        .container{
+            width: 1280px;
+            min-height: 50px;
+            background: black;
+            margin: 70px auto 0;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .container .box{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background: #ff0;
+            margin: 10px;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+
+        .container .box .imgBox{
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container .box .imgBox img{
+            max-width: 100%;
+            transition: transform 2s;
+        }
+
+        .container .box:hover .imgBox img{
+            transform: scale(1.2);
+        }
+
+        .container .box .details{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, .8);
+            transform: scaleY(0);
+            transition: transform .5s;
+        }
+
+        .container .box:hover .details{
+            transform: scaleY(1);
+        }
+
+        .container .box .details .content{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            padding: 15px;
+            color: #fff;
+        }
+
+        .container .box .details .content h2{
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            color: #ff0;
+        }
+
+        .container .box .details .content p{
+            margin: 10px 0 0;
+            padding: 0;
+
+        }
+
+
+
+
+
+
 
 
         /*header{*/
@@ -407,42 +492,157 @@
 </div>
 
 
-<header>
-    <h1>Assignment</h1>
-</header>
+<div class="container">
+    <div class="box">
+        <div class="imgBox">
+            <img src="assets/images/image1.jpg">
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>What is Lorem</h2>
+                <p>Get Grammarly for Instant Help With English Writing, Spelling, and Punctuation.
+                    Grammarly Helps You Write Your Best. See Immediate Results. Try Now! AI Writing Assistant.
+                    Easily Improve Any Text. Eliminate Grammar Errors. Find and Add Sources Fast.</p>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="imgBox">
+            <img src="assets/images/image1.jpg">
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>What is Lorem</h2>
+                <p>Get Grammarly for Instant Help With English Writing, Spelling, and Punctuation.
+                    Grammarly Helps You Write Your Best. See Immediate Results. Try Now! AI Writing Assistant.
+                    Easily Improve Any Text. Eliminate Grammar Errors. Find and Add Sources Fast.</p>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="imgBox">
+            <img src="assets/images/image1.jpg">
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>What is Lorem</h2>
+                <p>Get Grammarly for Instant Help With English Writing, Spelling, and Punctuation.
+                    Grammarly Helps You Write Your Best. See Immediate Results. Try Now! AI Writing Assistant.
+                    Easily Improve Any Text. Eliminate Grammar Errors. Find and Add Sources Fast.</p>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="imgBox">
+            <img src="assets/images/image1.jpg">
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>What is Lorem</h2>
+                <p>Get Grammarly for Instant Help With English Writing, Spelling, and Punctuation.
+                    Grammarly Helps You Write Your Best. See Immediate Results. Try Now! AI Writing Assistant.
+                    Easily Improve Any Text. Eliminate Grammar Errors. Find and Add Sources Fast.</p>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="imgBox">
+            <img src="assets/images/image1.jpg">
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>What is Lorem</h2>
+                <p>Get Grammarly for Instant Help With English Writing, Spelling, and Punctuation.
+                    Grammarly Helps You Write Your Best. See Immediate Results. Try Now! AI Writing Assistant.
+                    Easily Improve Any Text. Eliminate Grammar Errors. Find and Add Sources Fast.</p>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="imgBox">
+            <img src="assets/images/image1.jpg">
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>What is Lorem</h2>
+                <p>Get Grammarly for Instant Help With English Writing, Spelling, and Punctuation.
+                    Grammarly Helps You Write Your Best. See Immediate Results. Try Now! AI Writing Assistant.
+                    Easily Improve Any Text. Eliminate Grammar Errors. Find and Add Sources Fast.</p>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="imgBox">
+            <img src="assets/images/image1.jpg">
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>What is Lorem</h2>
+                <p>Get Grammarly for Instant Help With English Writing, Spelling, and Punctuation.
+                    Grammarly Helps You Write Your Best. See Immediate Results. Try Now! AI Writing Assistant.
+                    Easily Improve Any Text. Eliminate Grammar Errors. Find and Add Sources Fast.</p>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="imgBox">
+            <img src="assets/images/image1.jpg">
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>What is Lorem</h2>
+                <p>Get Grammarly for Instant Help With English Writing, Spelling, and Punctuation.
+                    Grammarly Helps You Write Your Best. See Immediate Results. Try Now! AI Writing Assistant.
+                    Easily Improve Any Text. Eliminate Grammar Errors. Find and Add Sources Fast.</p>
+            </div>
+        </div>
+    </div>
 
-
-<div>
-    <ul>
-        <li><a href="../My%20Projects/CSS/CSS_Positions/Assignment-%2001"><h2>Assignment - 01</h2></a></li>
-        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2005/case%201.html"><h2>Assignment - 02</h2></a></li>
-        <li><a href="../My%20Projects/CSS/CSS_Positions/Assignment-%2003"><h2>Assignment - 03</h2></a></li>
-        <li><a href="../My%20Projects/CSS/CSS_Positions/Assignment-%2004"><h2>Assignment - 04</h2></a></li>
-        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2005"><h2>Assignment - 05</h2></a></li>
-        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2006"><h2>Assignment - 06</h2></a></li>
-        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2007"><h2>Assignment - 07</h2></a></li>
-        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2008/index1.html"><h2>Assignment - 08</h2></a></li>
-        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2008/index2.html"><h2>Assignment - 09</h2></a></li>
-        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2009"><h2>Assignment - 10</h2></a></li>
-        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2010"><h2>Assignment - 11</h2></a></li><br>
-        <li><a href="../My%20Projects/CSS%20Frameworks/POS/index.html"><h2>Assignment - 12 (POS System)</h2></a></li>
-        <li><a href="../My%20Projects/SPA/index.html"><h2>Assignment - 13 (SPA)</h2></a></li>
-        <li><a href="../My%20Projects/SPA/Animation/Case1.html"><h2>Assignment - 14 (Case 1)</h2></a></li>
-        <li><a href="../My%20Projects/SPA/Animation/Case%202.html"><h2>Assignment - 15 (Case 2)</h2></a></li>
-        <li><a href="../My%20Projects/SPA/Animation/Case3.html"><h2>Assignment - 16 (Case 3)</h2></a></li>
-    </ul>
 </div>
 
-<main>
 
 
 
-<section>
-        <div><img src="../assests/images/read.png" alt="" width="750" align="center"></div>
 
 
-</section>
-</main>
+
+
+<!--<header>-->
+<!--    <h1>Assignment</h1>-->
+<!--</header>-->
+
+
+<!--<div>-->
+<!--    <ul>-->
+<!--        <li><a href="../My%20Projects/CSS/CSS_Positions/Assignment-%2001"><h2>Assignment - 01</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2005/case%201.html"><h2>Assignment - 02</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/CSS/CSS_Positions/Assignment-%2003"><h2>Assignment - 03</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/CSS/CSS_Positions/Assignment-%2004"><h2>Assignment - 04</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2005"><h2>Assignment - 05</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2006"><h2>Assignment - 06</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2007"><h2>Assignment - 07</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2008/index1.html"><h2>Assignment - 08</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2008/index2.html"><h2>Assignment - 09</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2009"><h2>Assignment - 10</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/CSS/Animations/Assignment-%2010"><h2>Assignment - 11</h2></a></li><br>-->
+<!--        <li><a href="../My%20Projects/CSS%20Frameworks/POS/index.html"><h2>Assignment - 12 (POS System)</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/SPA/index.html"><h2>Assignment - 13 (SPA)</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/SPA/Animation/Case1.html"><h2>Assignment - 14 (Case 1)</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/SPA/Animation/Case%202.html"><h2>Assignment - 15 (Case 2)</h2></a></li>-->
+<!--        <li><a href="../My%20Projects/SPA/Animation/Case3.html"><h2>Assignment - 16 (Case 3)</h2></a></li>-->
+<!--    </ul>-->
+<!--</div>-->
+
+<!--<main>-->
+
+
+
+<!--<section>-->
+<!--        <div><img src="../assests/images/read.png" alt="" width="750" align="center"></div>-->
+
+
+<!--</section>-->
+<!--</main>-->
 
 
 <script>
